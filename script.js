@@ -142,6 +142,8 @@ if (workModal) {
   const prevButton = workModal.querySelector("[data-slide-prev]");
   const nextButton = workModal.querySelector("[data-slide-next]");
   const jumpButtons = workModal.querySelectorAll("[data-slide-jump]");
+  const imageLightbox = workModal.querySelector(".image-lightbox");
+  const imageLightboxImage = imageLightbox?.querySelector("img");
   let currentSlide = 0;
 
   const stopVideos = () => {
@@ -158,6 +160,22 @@ if (workModal) {
     });
   };
 
+  const openImageLightbox = (image) => {
+    if (!imageLightbox || !imageLightboxImage || !image) return;
+    imageLightboxImage.src = image.currentSrc || image.src;
+    imageLightboxImage.alt = image.alt;
+    imageLightbox.classList.add("is-open");
+    imageLightbox.setAttribute("aria-hidden", "false");
+  };
+
+  const closeImageLightbox = () => {
+    if (!imageLightbox || !imageLightboxImage) return;
+    imageLightbox.classList.remove("is-open");
+    imageLightbox.setAttribute("aria-hidden", "true");
+    imageLightboxImage.removeAttribute("src");
+    imageLightboxImage.alt = "";
+  };
+
   const openModal = () => {
     workModal.classList.add("is-open");
     workModal.setAttribute("aria-hidden", "false");
@@ -169,6 +187,7 @@ if (workModal) {
     workModal.classList.remove("is-open");
     workModal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
+    closeImageLightbox();
     stopVideos();
   };
 
@@ -182,12 +201,29 @@ if (workModal) {
 
   prevButton?.addEventListener("click", () => showSlide(currentSlide - 1));
   nextButton?.addEventListener("click", () => showSlide(currentSlide + 1));
+  for (const slide of slides) {
+    if (!(slide instanceof HTMLImageElement)) continue;
+    slide.addEventListener("click", () => openImageLightbox(slide));
+  }
   for (const button of jumpButtons) {
-    button.addEventListener("click", () => showSlide(Number(button.dataset.slideJump)));
+    button.addEventListener("click", () => {
+      const targetSlide = Number(button.dataset.slideJump);
+      showSlide(targetSlide);
+      if (slides[targetSlide] instanceof HTMLImageElement) {
+        openImageLightbox(slides[targetSlide]);
+      }
+    });
+  }
+  for (const button of workModal.querySelectorAll("[data-lightbox-close]")) {
+    button.addEventListener("click", closeImageLightbox);
   }
 
   document.addEventListener("keydown", (event) => {
     if (!workModal.classList.contains("is-open")) return;
+    if (event.key === "Escape" && imageLightbox?.classList.contains("is-open")) {
+      closeImageLightbox();
+      return;
+    }
     if (event.key === "Escape") closeModal();
     if (event.key === "ArrowLeft") showSlide(currentSlide - 1);
     if (event.key === "ArrowRight") showSlide(currentSlide + 1);

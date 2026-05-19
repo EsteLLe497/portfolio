@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio Kinetic Site</title>
-    <link rel="stylesheet" href="./styles.css?v=gamma-ingenuity-left" />
+    <link rel="stylesheet" href="./styles.css?v=gamma-image-lightbox" />
   </head>
   <body>
     <nav class="global-nav" aria-label="サイト内ナビゲーション">
@@ -300,6 +300,13 @@
           </div>
         </div>
       </section>
+      <div class="image-lightbox" aria-hidden="true">
+        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
+        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
+          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
+          <img src="" alt="" />
+        </div>
+      </div>
     </div>
 
     <div class="work-modal" id="fishing-modal" aria-hidden="true">
@@ -363,6 +370,6 @@
       </section>
     </div>
 
-    <script src="./script.js?v=gamma-ingenuity-left"></script>
+    <script src="./script.js?v=gamma-image-lightbox"></script>
   </body>
 </html>
