@@ -860,7 +860,7 @@ main {
 
 .character-identity {
   display: grid;
-  gap: 6px;
+  gap: 8px;
   margin: 0 0 22px;
   padding: 0 0 18px 18px;
   border-left: 1px solid rgba(17, 17, 17, 0.36);
@@ -882,17 +882,15 @@ main {
 .character-identity span {
   color: var(--muted);
   font-size: 0.82rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.24em;
+  margin-top: 8px;
 }
 
 .character-identity strong {
   color: #333;
-  width: fit-content;
-  margin-top: 4px;
-  padding: 5px 12px 6px;
-  border: 1px solid rgba(17, 17, 17, 0.24);
-  background: rgba(255, 255, 255, 0.42);
+  margin-top: 6px;
   font-size: 1.02rem;
+  letter-spacing: 0.08em;
 }
 
 .role {
