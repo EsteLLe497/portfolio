@@ -354,6 +354,7 @@ main {
 .work-viewer {
   position: relative;
   display: grid;
+  align-self: start;
   align-items: center;
   min-height: 360px;
 }
@@ -443,6 +444,38 @@ main {
 
 .work-detail dd {
   margin: 0;
+}
+
+.work-pr-block {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.work-pr-block section {
+  padding: 14px 16px;
+  border: 1px solid var(--thin);
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.work-pr-block h4 {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+}
+
+.work-pr-block ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding-left: 1.1em;
+  line-height: 1.75;
+}
+
+.work-pr-block li::marker {
+  color: rgba(17, 17, 17, 0.42);
 }
 
 .hobby-modal-panel {
