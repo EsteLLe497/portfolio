@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio Kinetic Site</title>
-    <link rel="stylesheet" href="./styles.css?v=gamma-detail" />
+    <link rel="stylesheet" href="./styles.css?v=gamma-management" />
   </head>
   <body>
     <nav class="global-nav" aria-label="サイト内ナビゲーション">
@@ -228,15 +228,28 @@
       <section class="work-modal-panel" role="dialog" aria-modal="true" aria-labelledby="gamma-title">
         <button class="modal-close" type="button" data-work-close aria-label="閉じる">×</button>
         <div class="work-viewer">
-          <button class="viewer-arrow viewer-arrow-left" type="button" data-slide-prev aria-label="前のメディア">‹</button>
-          <div class="viewer-stage" data-slide-stage>
-            <video class="work-slide is-active" src="./assets/work-gamma/gamma-demo.mp4" controls playsinline preload="metadata"></video>
-            <img class="work-slide" src="./assets/work-gamma/gamma-1.webp" alt="GAMMA スクリーンショット 1" />
-            <img class="work-slide" src="./assets/work-gamma/gamma-2.webp" alt="GAMMA スクリーンショット 2" />
-            <img class="work-slide" src="./assets/work-gamma/gamma-3.webp" alt="GAMMA スクリーンショット 3" />
-            <img class="work-slide" src="./assets/work-gamma/gamma-4.webp" alt="GAMMA スクリーンショット 4" />
+          <div class="viewer-media">
+            <button class="viewer-arrow viewer-arrow-left" type="button" data-slide-prev aria-label="前のメディア">‹</button>
+            <div class="viewer-stage" data-slide-stage>
+              <video class="work-slide is-active" src="./assets/work-gamma/gamma-demo.mp4" controls playsinline preload="metadata"></video>
+              <img class="work-slide" src="./assets/work-gamma/gamma-1.webp" alt="GAMMA スクリーンショット 1" />
+              <img class="work-slide" src="./assets/work-gamma/gamma-2.webp" alt="GAMMA スクリーンショット 2" />
+              <img class="work-slide" src="./assets/work-gamma/gamma-3.webp" alt="GAMMA スクリーンショット 3" />
+              <img class="work-slide" src="./assets/work-gamma/gamma-4.webp" alt="GAMMA スクリーンショット 4" />
+              <img class="work-slide" src="./assets/work-gamma/gamma-task-sheet.png" alt="GAMMA タスク管理表とガントチャート" />
+              <img class="work-slide" src="./assets/work-gamma/gamma-meeting-sheet.png" alt="GAMMA ミーティング記録表" />
+              <img class="work-slide" src="./assets/work-gamma/gamma-personal-task-sheet.png" alt="GAMMA 個人タスク管理表" />
+            </div>
+            <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次のメディア">›</button>
           </div>
-          <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次のメディア">›</button>
+          <div class="work-media-notes">
+            <p>Management Assets</p>
+            <ul>
+              <li>ガントチャート / タスク管理表</li>
+              <li>ミーティング記録</li>
+              <li>個人別タスク進捗表</li>
+            </ul>
+          </div>
         </div>
         <div class="work-detail">
           <p class="work-index">Work 01</p>
@@ -249,7 +262,7 @@
           </dl>
           <p>
             初めてのチーム制作作品として、リーダー兼PMを担当しました。
-            チーム全体の進行管理やタスク調整を行いながら、<br />プログラム面ではXAudioを用いたサウンドシステムの実装や、<br />Assimpを使用した3Dモデル・モーション読み込み機能の実装を担当しました。
+            技術実装だけでなく、制作計画の整理や情報共有の仕組みづくりにも取り組み、<br />チーム全体が状況を把握しながら開発を進められる環境づくりを意識しました。
           </p>
           <div class="work-pr-block">
             <section>
@@ -264,14 +277,14 @@
               <ul>
                 <li>XAudioを使用したBGM・SE再生の管理機能を実装</li>
                 <li>Assimpを使用し、3Dモデルとモーションデータを読み込む仕組みを実装</li>
-                <li>チーム内で扱いやすいよう、機能ごとの責任範囲を意識して実装</li>
+                <li>ガントチャート、タスク管理表をGASで作成し、より計画的な作業を可能に</li>
               </ul>
             </section>
             <section>
               <h4>工夫点</h4>
               <ul>
-                <li>メンバーの作業状況を把握し、優先度を整理しながら開発を進行</li>
-                <li>後から修正しやすいよう、読みやすさと保守性を意識してコードを設計</li>
+                <li>タスク管理表とDiscord Webhookを連携し、タスクの変更・追加があればサーバー上で通知できるように設計</li>
+                <li>サウンド面では影の入出時にBGMをクロスフェードさせ、さらなる没入感を演出</li>
                 <li>初めてのチーム制作でも情報共有を重視し、制作全体の停滞を減らすことを意識</li>
               </ul>
             </section>
@@ -341,6 +354,6 @@
       </section>
     </div>
 
-    <script src="./script.js?v=gamma-detail"></script>
+    <script src="./script.js?v=gamma-management"></script>
   </body>
 </html>

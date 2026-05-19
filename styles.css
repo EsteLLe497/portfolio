@@ -355,8 +355,13 @@ main {
   position: relative;
   display: grid;
   align-self: start;
-  align-items: center;
+  align-content: start;
+  gap: 16px;
   min-height: 360px;
+}
+
+.viewer-media {
+  position: relative;
 }
 
 .viewer-stage {
@@ -400,6 +405,36 @@ main {
 
 .viewer-arrow-right {
   right: 10px;
+}
+
+.work-media-notes {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--thin);
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.work-media-notes p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+}
+
+.work-media-notes ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1.55;
+}
+
+.work-media-notes li {
+  padding-left: 10px;
+  border-left: 1px solid rgba(17, 17, 17, 0.28);
 }
 
 .work-detail {
@@ -1035,6 +1070,10 @@ figcaption {
 
   .work-viewer {
     min-height: 0;
+  }
+
+  .work-media-notes ul {
+    grid-template-columns: 1fr;
   }
 
   .life-chart-head {
