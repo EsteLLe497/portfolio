@@ -469,6 +469,33 @@ main {
   padding: 0;
 }
 
+.work-ingenuity {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--thin);
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.work-ingenuity p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+}
+
+.work-ingenuity ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 1.1em;
+  line-height: 1.75;
+}
+
+.work-ingenuity li::marker {
+  color: rgba(17, 17, 17, 0.42);
+}
+
 .work-detail {
   align-self: center;
 }
