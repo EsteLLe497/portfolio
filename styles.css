@@ -859,9 +859,37 @@ main {
 }
 
 .quote {
-  margin: 0 0 26px;
+  margin: 0 0 18px;
   font-size: clamp(1.5rem, 3.1vw, 2.55rem);
   line-height: 1.55;
+}
+
+.character-identity {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 18px;
+}
+
+.character-identity p,
+.character-identity strong {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.character-identity p {
+  font-size: clamp(1.45rem, 2.4vw, 2.2rem);
+}
+
+.character-identity span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+}
+
+.character-identity strong {
+  color: #333;
+  font-size: 1.02rem;
 }
 
 .role {
@@ -880,7 +908,7 @@ main {
 
 .character-slide-frame {
   position: relative;
-  min-height: 360px;
+  min-height: 328px;
   border: 1px solid var(--thin);
   background: rgba(255, 255, 255, 0.34);
   overflow: hidden;
@@ -888,7 +916,7 @@ main {
 
 .character-slide {
   display: none;
-  min-height: 360px;
+  min-height: 328px;
   padding: 24px 28px;
 }
 
@@ -1288,11 +1316,11 @@ figcaption {
   }
 
   .character-slide-frame {
-    min-height: 460px;
+    min-height: 420px;
   }
 
   .character-slide {
-    min-height: 460px;
+    min-height: 420px;
     padding: 20px;
   }
 
