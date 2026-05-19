@@ -880,7 +880,7 @@ main {
 
 .character-slide-frame {
   position: relative;
-  min-height: 272px;
+  min-height: 360px;
   border: 1px solid var(--thin);
   background: rgba(255, 255, 255, 0.34);
   overflow: hidden;
@@ -888,7 +888,7 @@ main {
 
 .character-slide {
   display: none;
-  min-height: 272px;
+  min-height: 360px;
   padding: 24px 28px;
 }
 
@@ -963,10 +963,14 @@ main {
 
 .skill-level {
   display: block;
-  margin-bottom: 8px;
+  margin: 4px 0 8px;
   color: var(--muted);
   font-size: 0.76rem;
   letter-spacing: 0.12em;
+}
+
+.tool-tags + .skill-level {
+  margin-top: 14px;
 }
 
 .info-list {
@@ -1284,11 +1288,11 @@ figcaption {
   }
 
   .character-slide-frame {
-    min-height: 300px;
+    min-height: 460px;
   }
 
   .character-slide {
-    min-height: 300px;
+    min-height: 460px;
     padding: 20px;
   }
 
