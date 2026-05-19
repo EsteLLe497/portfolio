@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio Kinetic Site</title>
-    <link rel="stylesheet" href="./styles.css?v=gamma-management" />
+    <link rel="stylesheet" href="./styles.css?v=gamma-management-thumbs" />
   </head>
   <body>
     <nav class="global-nav" aria-label="サイト内ナビゲーション">
@@ -244,11 +244,20 @@
           </div>
           <div class="work-media-notes">
             <p>Management Assets</p>
-            <ul>
-              <li>ガントチャート / タスク管理表</li>
-              <li>ミーティング記録</li>
-              <li>個人別タスク進捗表</li>
-            </ul>
+            <div class="work-media-thumbs" aria-label="制作管理資料">
+              <button type="button" data-slide-jump="5">
+                <img src="./assets/work-gamma/gamma-task-sheet.png" alt="タスク管理表とガントチャートのサムネイル" />
+                <span><span>ガントチャート/</span><span>タスク管理表</span></span>
+              </button>
+              <button type="button" data-slide-jump="6">
+                <img src="./assets/work-gamma/gamma-meeting-sheet.png" alt="ミーティング記録のサムネイル" />
+                <span>ミーティング記録</span>
+              </button>
+              <button type="button" data-slide-jump="7">
+                <img src="./assets/work-gamma/gamma-personal-task-sheet.png" alt="個人別タスク進捗表のサムネイル" />
+                <span>個人別タスク進捗表</span>
+              </button>
+            </div>
           </div>
         </div>
         <div class="work-detail">
@@ -354,6 +363,6 @@
       </section>
     </div>
 
-    <script src="./script.js?v=gamma-management"></script>
+    <script src="./script.js?v=gamma-management-thumbs"></script>
   </body>
 </html>

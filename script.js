@@ -141,6 +141,7 @@ if (workModal) {
   const closeButtons = workModal.querySelectorAll("[data-work-close]");
   const prevButton = workModal.querySelector("[data-slide-prev]");
   const nextButton = workModal.querySelector("[data-slide-next]");
+  const jumpButtons = workModal.querySelectorAll("[data-slide-jump]");
   let currentSlide = 0;
 
   const stopVideos = () => {
@@ -181,6 +182,9 @@ if (workModal) {
 
   prevButton?.addEventListener("click", () => showSlide(currentSlide - 1));
   nextButton?.addEventListener("click", () => showSlide(currentSlide + 1));
+  for (const button of jumpButtons) {
+    button.addEventListener("click", () => showSlide(Number(button.dataset.slideJump)));
+  }
 
   document.addEventListener("keydown", (event) => {
     if (!workModal.classList.contains("is-open")) return;
