@@ -862,28 +862,35 @@ main {
   display: grid;
   gap: 8px;
   margin: 0 0 22px;
-  padding: 0 0 18px 18px;
-  border-left: 1px solid rgba(17, 17, 17, 0.36);
-  border-bottom: 1px solid rgba(17, 17, 17, 0.16);
+  padding: 0 0 18px;
 }
 
-.character-identity p,
 .character-identity strong {
   margin: 0;
   font-weight: 400;
   letter-spacing: 0.08em;
 }
 
-.character-identity p {
-  font-size: clamp(2.15rem, 4vw, 3.6rem);
-  line-height: 1.1;
+.identity-name,
+.identity-reading {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  column-gap: 1.65em;
+  width: fit-content;
+  margin: 0;
 }
 
-.character-identity span {
+.identity-name {
+  font-size: clamp(2.15rem, 4vw, 3.6rem);
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+}
+
+.identity-reading {
   color: var(--muted);
   font-size: 0.82rem;
   letter-spacing: 0.24em;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 .character-identity strong {
