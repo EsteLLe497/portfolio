@@ -733,7 +733,7 @@ main {
 .chart-grid {
   position: absolute;
   inset: 34px 28px 38px;
-  display: grid;
+  display: none;
   grid-template-rows: repeat(5, 1fr);
   color: rgba(17, 17, 17, 0.38);
   font-size: 0.72rem;
@@ -864,14 +864,15 @@ main {
 }
 
 .character-copy {
+  --profile-side-gutter: 58px;
   width: min(100%, 860px);
 }
 
 .character-identity {
   display: grid;
   gap: 8px;
-  width: 100%;
-  margin: 0 0 22px;
+  width: calc(100% - (var(--profile-side-gutter) * 2));
+  margin: 0 0 22px var(--profile-side-gutter);
   padding: 0 0 18px;
 }
 
@@ -911,8 +912,8 @@ main {
 }
 
 .role {
-  width: 100%;
-  margin: 0 0 28px;
+  width: calc(100% - (var(--profile-side-gutter) * 2));
+  margin: 0 0 28px var(--profile-side-gutter);
   font-size: 1.18rem;
 }
 
@@ -1332,6 +1333,10 @@ figcaption {
   .character-carousel {
     grid-template-columns: 38px minmax(0, 1fr) 38px;
     gap: 8px;
+  }
+
+  .character-copy {
+    --profile-side-gutter: 46px;
   }
 
   .character-slide-frame {
