@@ -753,6 +753,8 @@ main {
   margin: 0;
   padding: 0;
   list-style: none;
+  --timeline-left: 159px;
+  --card-start: 206px;
 }
 
 .chart-points::before {
@@ -760,7 +762,7 @@ main {
   position: absolute;
   top: 12px;
   bottom: 12px;
-  left: 142px;
+  left: var(--timeline-left);
   width: 1px;
   background: linear-gradient(180deg, transparent, rgba(17, 17, 17, 0.5), transparent);
 }
@@ -778,8 +780,8 @@ main {
   content: "";
   position: absolute;
   top: 18px;
-  left: 154px;
-  width: 34px;
+  left: calc(var(--timeline-left) + 12px);
+  width: calc(var(--card-start) - var(--timeline-left) - 12px);
   height: 1px;
   background: rgba(17, 17, 17, 0.24);
 }
@@ -815,11 +817,12 @@ main {
   display: block;
   grid-column: 3;
   grid-row: 1;
-  width: fit-content;
-  min-width: min(100%, 320px);
+  width: 100%;
+  max-width: 700px;
   padding: 15px 18px 0;
   border-top: 1px solid var(--thin);
   border-left: 1px solid var(--thin);
+  border-right: 1px solid var(--thin);
   background: rgba(255, 255, 255, 0.42);
   font-weight: 400;
   font-size: 1.05rem;
@@ -829,10 +832,12 @@ main {
 .chart-points p {
   grid-column: 3;
   grid-row: 2;
+  width: 100%;
   max-width: 700px;
   margin: 0;
   padding: 8px 18px 17px;
   border-left: 1px solid var(--thin);
+  border-right: 1px solid var(--thin);
   border-bottom: 1px solid rgba(17, 17, 17, 0.18);
   background: rgba(255, 255, 255, 0.42);
   color: #3f3f3f;
@@ -858,9 +863,14 @@ main {
   transition: transform 180ms ease-out;
 }
 
+.character-copy {
+  width: min(100%, 860px);
+}
+
 .character-identity {
   display: grid;
   gap: 8px;
+  width: 100%;
   margin: 0 0 22px;
   padding: 0 0 18px;
 }
@@ -901,6 +911,7 @@ main {
 }
 
 .role {
+  width: 100%;
   margin: 0 0 28px;
   font-size: 1.18rem;
 }
@@ -910,7 +921,7 @@ main {
   grid-template-columns: 46px minmax(0, 1fr) 46px;
   gap: 12px;
   align-items: center;
-  width: min(100%, 860px);
+  width: 100%;
   max-width: 860px;
 }
 
