@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tanaka Masatora Comedy Portfolio</title>
+    <link rel="stylesheet" href="./styles.css?v=first-draft" />
+  </head>
+  <body>
+    <div class="stage-light" aria-hidden="true"></div>
+    <nav class="top-bar" aria-label="サイト内ナビゲーション">
+      <a href="#top">TOP</a>
+      <a href="#profile">PROFILE</a>
+      <a href="#works">WORK</a>
+      <a href="#episode">EPISODE</a>
+      <a href="../">ORIGINAL</a>
+    </nav>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy">
+          <p class="eyebrow">Game Programmer / Team Entertainer</p>
+          <h1>場をあたためて、<br />作品を前に進める。</h1>
+          <p class="lead">
+            企画、実装、進行管理を横断しながら、チームの空気も開発速度も前に動かすゲームプログラマーです。
+            笑いをただのノリで終わらせず、相談しやすさ、巻き込みやすさ、最後まで走り切る推進力につなげます。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#works">作品を見る</a>
+            <a class="secondary-link" href="#profile">人物像を見る</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="田中雅虎のプロフィールカード">
+          <div class="badge-row">
+            <span>OPEN</span>
+            <span>TEAM READY</span>
+          </div>
+          <img src="../assets/me-removebg-preview.png" alt="田中雅虎の写真" />
+          <div class="name-plate">
+            <p>TANAKA MASATORA</p>
+            <strong>ROLE: プログラマー</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="強みの要約">
+        <div>
+          <span>企画立案</span>
+          <span>実装</span>
+          <span>進行管理</span>
+          <span>場づくり</span>
+          <span>読みやすいコード</span>
+          <span>チーム制作</span>
+          <span>企画立案</span>
+          <span>実装</span>
+          <span>進行管理</span>
+          <span>場づくり</span>
+          <span>読みやすいコード</span>
+          <span>チーム制作</span>
+        </div>
+      </section>
+
+      <section class="section profile-section" id="profile">
+        <header class="section-heading">
+          <p>Profile</p>
+          <h2>ふざけるのではなく、動かす。</h2>
+        </header>
+        <div class="profile-grid">
+          <article class="spot-card main-profile">
+            <p class="card-label">Character</p>
+            <h3>エンターテイナー型プログラマー</h3>
+            <p>
+              チームの中で話しやすい空気を作り、意見や不安を拾い上げながら制作を進めることを大切にしています。
+              明るさを武器にしつつ、実装では可読性、処理の最適化、共有しやすい設計を意識しています。
+            </p>
+          </article>
+          <article class="spot-card">
+            <p class="card-label">Tools</p>
+            <ul class="tag-list">
+              <li>Visual Studio</li>
+              <li>Unity</li>
+              <li>Git</li>
+              <li>Codex</li>
+              <li>Unreal Engine</li>
+              <li>Maya</li>
+            </ul>
+          </article>
+          <article class="spot-card">
+            <p class="card-label">Language</p>
+            <ul class="tag-list">
+              <li>C++</li>
+              <li>C#</li>
+              <li>HTML</li>
+              <li>Python</li>
+              <li>JavaScript</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section works-section" id="works">
+        <header class="section-heading">
+          <p>Work</p>
+          <h2>笑顔だけでなく、成果物で話す。</h2>
+        </header>
+        <div class="showcase">
+          <article class="work-panel">
+            <img src="../assets/work-gamma/gamma-1.webp" alt="GAMMAのゲーム画面" />
+            <div>
+              <p class="card-label">Work 01</p>
+              <h3>GAMMA</h3>
+              <p>
+                二年次のチーム制作作品。初めてのチーム制作でリーダー兼PMを担当し、進行管理と実装の両面から開発を支えました。
+              </p>
+              <ul class="work-list">
+                <li>XAudioを用いたサウンドシステム</li>
+                <li>Assimpによる3Dモデル・モーション読み込み</li>
+                <li>GASを使ったタスク管理表とガントチャート運用</li>
+              </ul>
+            </div>
+          </article>
+          <aside class="reaction-board" aria-label="制作で意識していること">
+            <button type="button" data-reaction="idea">企画</button>
+            <button type="button" data-reaction="code">実装</button>
+            <button type="button" data-reaction="team">進行</button>
+            <p id="reaction-text">アイデアを形にし、遊びとして伝わるところまで粘ります。</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section episode-section" id="episode">
+        <header class="section-heading">
+          <p>Episode</p>
+          <h2>好きなことも、人柄の証拠にする。</h2>
+        </header>
+        <div class="episode-grid">
+          <article>
+            <img src="../assets/hobby-fishing.jpg" alt="釣りをしている写真" />
+            <h3>Fishing</h3>
+            <p>小さい頃から父と船釣りへ。最近は湘南で堤防釣りをしながら、海を見てぼーっとする時間が癒しです。</p>
+          </article>
+          <article>
+            <img src="../assets/hobby-nazotoki.jpg" alt="謎解きイベントの写真" />
+            <h3>Puzzle Event</h3>
+            <p>リアル謎解きが好きです。観察して、仮説を立てて、仲間と解く流れはゲーム制作のデバッグにも近い感覚です。</p>
+          </article>
+          <article>
+            <img src="../assets/hobby-travel-itsukushima.jpg" alt="厳島神社の鳥居の写真" />
+            <h3>Travel</h3>
+            <p>寺社仏閣や伝統的な建造物を巡るのが好きです。地域のご飯まで含めて、その場所の空気を楽しみます。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js?v=first-draft"></script>
+  </body>
+</html>
