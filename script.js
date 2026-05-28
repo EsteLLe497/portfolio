@@ -1,4 +1,5 @@
 const links = document.querySelectorAll('a[href^="#"]');
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 document.body.classList.add("page-ready");
 links[0]?.classList.add("is-active");
@@ -75,6 +76,39 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 
 updateScrollMotion();
+
+const createRipple = (x, y, options = {}) => {
+  const ripple = document.createElement("span");
+  const size = options.size ?? Math.floor(90 + Math.random() * 110);
+  ripple.className = `ripple-effect${options.random ? " is-random" : ""}`;
+  ripple.style.setProperty("--ripple-x", `${x}px`);
+  ripple.style.setProperty("--ripple-y", `${y}px`);
+  ripple.style.setProperty("--ripple-size", `${size}px`);
+  ripple.addEventListener("animationend", () => ripple.remove(), { once: true });
+  document.body.append(ripple);
+};
+
+document.addEventListener("pointerdown", (event) => {
+  if (event.button !== 0) return;
+  createRipple(event.clientX, event.clientY, {
+    size: Math.floor(86 + Math.random() * 96),
+  });
+}, { passive: true });
+
+const scheduleRandomRipple = () => {
+  if (reduceMotion || document.hidden) {
+    window.setTimeout(scheduleRandomRipple, 2400);
+    return;
+  }
+
+  createRipple(Math.random() * window.innerWidth, Math.random() * window.innerHeight, {
+    random: true,
+    size: Math.floor(150 + Math.random() * 220),
+  });
+  window.setTimeout(scheduleRandomRipple, 1400 + Math.random() * 2200);
+};
+
+window.setTimeout(scheduleRandomRipple, 900);
 
 const characterCarousel = document.querySelector(".character-carousel");
 
