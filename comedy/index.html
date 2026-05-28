@@ -3,156 +3,210 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tanaka Masatora Comedy Portfolio</title>
-    <link rel="stylesheet" href="./styles.css?v=first-draft" />
+    <title>Masatora Tanaka Another Route</title>
+    <link rel="stylesheet" href="./styles.css?v=vn-route-01" />
   </head>
   <body>
-    <div class="stage-light" aria-hidden="true"></div>
-    <nav class="top-bar" aria-label="サイト内ナビゲーション">
+    <div class="ambient" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="site-nav" aria-label="サイト内ナビゲーション">
       <a href="#top">TOP</a>
-      <a href="#profile">PROFILE</a>
-      <a href="#works">WORK</a>
-      <a href="#episode">EPISODE</a>
-      <a href="../">ORIGINAL</a>
+      <a href="#character">CHARACTER</a>
+      <a href="#story">STORY</a>
+      <a href="#hobby">HOBBY</a>
+      <a href="#work">WORK</a>
     </nav>
 
     <main id="top">
       <section class="hero section">
-        <div class="hero-copy">
-          <p class="eyebrow">Game Programmer / Team Entertainer</p>
-          <h1>場をあたためて、<br />作品を前に進める。</h1>
-          <p class="lead">
-            企画、実装、進行管理を横断しながら、チームの空気も開発速度も前に動かすゲームプログラマーです。
-            笑いをただのノリで終わらせず、相談しやすさ、巻き込みやすさ、最後まで走り切る推進力につなげます。
+        <div class="hero-copy reveal">
+          <p class="route-label">Portfolio Another Route</p>
+          <h1>MASATORA<br />TANAKA</h1>
+          <p class="hero-lead">
+            場を明るくしながら、企画・実装・進行管理まで前に進めるゲームプログラマー。
+            チームの空気を温め、最後は成果物で語れる人材を目指しています。
           </p>
-          <div class="hero-actions">
-            <a class="primary-link" href="#works">作品を見る</a>
-            <a class="secondary-link" href="#profile">人物像を見る</a>
+          <div class="hero-buttons">
+            <a href="#character">プロフィール</a>
+            <a href="#work">制作作品</a>
           </div>
         </div>
-        <div class="hero-card" aria-label="田中雅虎のプロフィールカード">
-          <div class="badge-row">
-            <span>OPEN</span>
-            <span>TEAM READY</span>
-          </div>
-          <img src="../assets/me-removebg-preview.png" alt="田中雅虎の写真" />
-          <div class="name-plate">
-            <p>TANAKA MASATORA</p>
-            <strong>ROLE: プログラマー</strong>
-          </div>
+
+        <div class="hero-portrait reveal">
+          <div class="portrait-backdrop"></div>
+          <img src="../assets/me-removebg-preview.png" alt="田中雅虎の立ち絵写真" />
+        </div>
+
+        <div class="dialogue-box reveal" aria-live="polite">
+          <p class="speaker">田中 雅虎</p>
+          <p id="dialogueText">チームを前に進めるためなら、進行表もコードも空気づくりも全部やります。</p>
+          <button type="button" data-next-line>Next</button>
         </div>
       </section>
 
-      <section class="ticker" aria-label="強みの要約">
-        <div>
-          <span>企画立案</span>
-          <span>実装</span>
-          <span>進行管理</span>
-          <span>場づくり</span>
-          <span>読みやすいコード</span>
-          <span>チーム制作</span>
-          <span>企画立案</span>
-          <span>実装</span>
-          <span>進行管理</span>
-          <span>場づくり</span>
-          <span>読みやすいコード</span>
-          <span>チーム制作</span>
-        </div>
-      </section>
-
-      <section class="section profile-section" id="profile">
-        <header class="section-heading">
-          <p>Profile</p>
-          <h2>ふざけるのではなく、動かす。</h2>
+      <section class="character section" id="character">
+        <header class="section-title reveal">
+          <p>Character</p>
+          <h2>主人公ステータス</h2>
         </header>
-        <div class="profile-grid">
-          <article class="spot-card main-profile">
-            <p class="card-label">Character</p>
-            <h3>エンターテイナー型プログラマー</h3>
-            <p>
-              チームの中で話しやすい空気を作り、意見や不安を拾い上げながら制作を進めることを大切にしています。
-              明るさを武器にしつつ、実装では可読性、処理の最適化、共有しやすい設計を意識しています。
-            </p>
-          </article>
-          <article class="spot-card">
-            <p class="card-label">Tools</p>
-            <ul class="tag-list">
-              <li>Visual Studio</li>
-              <li>Unity</li>
-              <li>Git</li>
-              <li>Codex</li>
-              <li>Unreal Engine</li>
-              <li>Maya</li>
-            </ul>
-          </article>
-          <article class="spot-card">
-            <p class="card-label">Language</p>
-            <ul class="tag-list">
-              <li>C++</li>
-              <li>C#</li>
-              <li>HTML</li>
-              <li>Python</li>
-              <li>JavaScript</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section works-section" id="works">
-        <header class="section-heading">
-          <p>Work</p>
-          <h2>笑顔だけでなく、成果物で話す。</h2>
-        </header>
-        <div class="showcase">
-          <article class="work-panel">
-            <img src="../assets/work-gamma/gamma-1.webp" alt="GAMMAのゲーム画面" />
+        <div class="character-layout">
+          <aside class="character-card reveal">
+            <img src="../assets/me-removebg-preview.png" alt="田中雅虎の写真" />
             <div>
-              <p class="card-label">Work 01</p>
-              <h3>GAMMA</h3>
+              <p class="kana">tanaka masatora</p>
+              <h3>田中 雅虎</h3>
+              <span>ROLE: プログラマー</span>
+            </div>
+          </aside>
+
+          <div class="profile-panel reveal">
+            <div class="tab-list" role="tablist" aria-label="プロフィール切り替え">
+              <button type="button" class="is-active" data-profile-tab="summary">Summary</button>
+              <button type="button" data-profile-tab="skill">Skill</button>
+              <button type="button" data-profile-tab="award">Award</button>
+            </div>
+            <article class="profile-page is-active" data-profile-page="summary">
+              <h3>エンターテイナー型チームプレイヤー</h3>
               <p>
-                二年次のチーム制作作品。初めてのチーム制作でリーダー兼PMを担当し、進行管理と実装の両面から開発を支えました。
+                明るく話しやすい空気を作りながら、課題整理、タスク調整、実装まで担当します。
+                ただ盛り上げるだけではなく、チームが動きやすい状態を作ることを大切にしています。
               </p>
-              <ul class="work-list">
-                <li>XAudioを用いたサウンドシステム</li>
-                <li>Assimpによる3Dモデル・モーション読み込み</li>
-                <li>GASを使ったタスク管理表とガントチャート運用</li>
+            </article>
+            <article class="profile-page" data-profile-page="skill">
+              <h3>Tools / Language</h3>
+              <ul class="tag-list">
+                <li>C++</li>
+                <li>C#</li>
+                <li>Visual Studio</li>
+                <li>Unity</li>
+                <li>Git</li>
+                <li>Codex</li>
+                <li>DirectX11</li>
               </ul>
+            </article>
+            <article class="profile-page" data-profile-page="award">
+              <h3>Qualification / Award</h3>
+              <ul class="plain-list">
+                <li>基本情報技術者</li>
+                <li>情報検定 基本スキル</li>
+                <li>TPS学内コンテスト：構成力賞</li>
+                <li>Switch2Dゲーム学内コンテスト：意欲賞</li>
+                <li>一カ年精・皆勤賞</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="story section" id="story">
+        <header class="section-title reveal">
+          <p>Story</p>
+          <h2>ゲーム制作へ向かうルート</h2>
+        </header>
+        <div class="story-route reveal">
+          <button type="button" class="chapter is-active" data-story="0">
+            <span>Chapter 01</span>
+            <strong>ゲーム体験の原点</strong>
+          </button>
+          <button type="button" class="chapter" data-story="1">
+            <span>Chapter 02</span>
+            <strong>チーム経験</strong>
+          </button>
+          <button type="button" class="chapter" data-story="2">
+            <span>Chapter 03</span>
+            <strong>制作への興味</strong>
+          </button>
+          <button type="button" class="chapter" data-story="3">
+            <span>Chapter 04</span>
+            <strong>現在</strong>
+          </button>
+        </div>
+        <article class="story-window reveal">
+          <p id="storyLabel">Childhood</p>
+          <h3 id="storyTitle">ゲーム体験の原点</h3>
+          <p id="storyBody">
+            3DSやWiiを通じてゲームの面白さに触れ、友人や家族と遊ぶ時間の中で、ゲームが人とのつながりを生むものだと感じました。
+          </p>
+        </article>
+      </section>
+
+      <section class="hobby section" id="hobby">
+        <header class="section-title reveal">
+          <p>Hobby</p>
+          <h2>サブクエスト</h2>
+        </header>
+        <div class="hobby-grid">
+          <article class="hobby-card reveal">
+            <img src="../assets/hobby-fishing.jpg" alt="夜の堤防で釣りをしている写真" />
+            <div>
+              <p>Quest 01</p>
+              <h3>釣り</h3>
+              <span>海を見ながら考えを整理する時間。</span>
             </div>
           </article>
-          <aside class="reaction-board" aria-label="制作で意識していること">
-            <button type="button" data-reaction="idea">企画</button>
-            <button type="button" data-reaction="code">実装</button>
-            <button type="button" data-reaction="team">進行</button>
-            <p id="reaction-text">アイデアを形にし、遊びとして伝わるところまで粘ります。</p>
-          </aside>
+          <article class="hobby-card reveal">
+            <img src="../assets/hobby-nazotoki.jpg" alt="謎解きイベントの写真" />
+            <div>
+              <p>Quest 02</p>
+              <h3>謎解き</h3>
+              <span>観察、仮説、検証。デバッグに近い楽しさ。</span>
+            </div>
+          </article>
+          <article class="hobby-card reveal">
+            <img src="../assets/hobby-travel-itsukushima.jpg" alt="厳島神社の鳥居の写真" />
+            <div>
+              <p>Quest 03</p>
+              <h3>旅行</h3>
+              <span>土地の空気や建造物から世界観を吸収。</span>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="section episode-section" id="episode">
-        <header class="section-heading">
-          <p>Episode</p>
-          <h2>好きなことも、人柄の証拠にする。</h2>
+      <section class="work section" id="work">
+        <header class="section-title reveal">
+          <p>Work</p>
+          <h2>制作作品</h2>
         </header>
-        <div class="episode-grid">
-          <article>
-            <img src="../assets/hobby-fishing.jpg" alt="釣りをしている写真" />
-            <h3>Fishing</h3>
-            <p>小さい頃から父と船釣りへ。最近は湘南で堤防釣りをしながら、海を見てぼーっとする時間が癒しです。</p>
-          </article>
-          <article>
-            <img src="../assets/hobby-nazotoki.jpg" alt="謎解きイベントの写真" />
-            <h3>Puzzle Event</h3>
-            <p>リアル謎解きが好きです。観察して、仮説を立てて、仲間と解く流れはゲーム制作のデバッグにも近い感覚です。</p>
-          </article>
-          <article>
-            <img src="../assets/hobby-travel-itsukushima.jpg" alt="厳島神社の鳥居の写真" />
-            <h3>Travel</h3>
-            <p>寺社仏閣や伝統的な建造物を巡るのが好きです。地域のご飯まで含めて、その場所の空気を楽しみます。</p>
-          </article>
+        <div class="work-stage reveal">
+          <button class="work-card" type="button" data-open-work>
+            <img src="../assets/work-gamma/gamma-1.webp" alt="GAMMAのゲーム画面" />
+            <span>Work 01</span>
+            <h3>GAMMA</h3>
+            <p>二年次チーム制作作品。リーダー兼PMとして、進行管理と実装を担当。</p>
+          </button>
         </div>
       </section>
     </main>
 
-    <script src="./script.js?v=first-draft"></script>
+    <dialog class="work-modal" id="workModal">
+      <button class="modal-close" type="button" data-close-work>Close</button>
+      <div class="modal-layout">
+        <video controls poster="../assets/work-gamma/gamma-1.webp">
+          <source src="../assets/work-gamma/gamma-demo.mp4" type="video/mp4" />
+        </video>
+        <div>
+          <p class="route-label">Work 01</p>
+          <h2>GAMMA</h2>
+          <p>
+            初めてのチーム制作作品として、リーダー兼PMを担当しました。
+            進行管理、タスク調整、サウンドシステム、3Dモデル・モーション読み込みを中心に実装しています。
+          </p>
+          <ul class="plain-list">
+            <li>制作期間：4か月</li>
+            <li>制作環境：DirectX11</li>
+            <li>制作人数：11人</li>
+            <li>XAudioを用いたサウンドシステム</li>
+            <li>Assimpを使用した3Dモデル・モーション読み込み</li>
+          </ul>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="./script.js?v=vn-route-01"></script>
   </body>
 </html>
