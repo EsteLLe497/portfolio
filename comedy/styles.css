@@ -42,6 +42,18 @@ body::before {
   pointer-events: none;
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, transparent 0 68%, rgba(36, 87, 166, 0.08) 68% 69%, transparent 72%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 5px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
 a,
 button {
   color: inherit;
@@ -102,16 +114,17 @@ video {
 
 .site-nav {
   position: fixed;
-  inset: 18px 18px auto;
+  inset: 18px 18px auto auto;
   z-index: 30;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 8px;
   padding: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.58);
-  box-shadow: 0 18px 60px rgba(36, 87, 166, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 18px;
+  background: rgba(23, 34, 58, 0.72);
+  box-shadow: 0 18px 60px rgba(23, 34, 58, 0.22);
   backdrop-filter: blur(18px);
   overflow-x: auto;
   scrollbar-width: none;
@@ -123,20 +136,49 @@ video {
 
 .site-nav a {
   flex: 0 0 auto;
-  padding: 9px 14px;
-  border-radius: 999px;
-  color: var(--deep);
+  min-width: 132px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.08em;
-  transition: background 220ms ease, transform 220ms ease;
+  text-align: right;
+  transition: background 220ms ease, transform 220ms ease, color 220ms ease;
 }
 
 .site-nav a:hover,
 .site-nav a:focus-visible,
 .site-nav a.is-active {
   background: white;
+  color: var(--deep);
   transform: translateY(-2px);
+}
+
+.system-dock {
+  position: fixed;
+  left: 18px;
+  top: 18px;
+  z-index: 30;
+  display: flex;
+  gap: 6px;
+  padding: 7px;
+  border-radius: 999px;
+  background: rgba(23, 34, 58, 0.7);
+  box-shadow: 0 18px 60px rgba(23, 34, 58, 0.18);
+  backdrop-filter: blur(16px);
+}
+
+.system-dock span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
 }
 
 .section {
@@ -153,6 +195,45 @@ video {
   align-items: center;
   min-height: 100vh;
   padding-top: 104px;
+}
+
+.hero::before {
+  content: "ADV MODE / AUTO OFF / SKIP OFF";
+  position: absolute;
+  left: 0;
+  top: 92px;
+  color: rgba(36, 87, 166, 0.46);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+.scene-label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  width: min(420px, 100%);
+  margin-bottom: 22px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: 0 14px 36px rgba(36, 87, 166, 0.12);
+  backdrop-filter: blur(14px);
+}
+
+.scene-label span {
+  color: var(--pink);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.scene-label strong {
+  color: var(--deep);
+  font-weight: 900;
 }
 
 .route-label,
@@ -194,16 +275,28 @@ video {
 }
 
 .hero-buttons a {
+  position: relative;
+  display: grid;
+  gap: 2px;
   min-width: 146px;
-  padding: 13px 18px;
+  padding: 12px 20px 13px;
   border: 1px solid rgba(255, 255, 255, 0.95);
-  border-radius: 999px;
-  background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.62));
+  border-radius: 16px;
+  background:
+    linear-gradient(90deg, var(--deep) 0 6px, transparent 6px),
+    linear-gradient(135deg, white, rgba(255, 255, 255, 0.62));
   box-shadow: 0 14px 34px rgba(36, 87, 166, 0.16);
   color: var(--deep);
   font-weight: 900;
-  text-align: center;
+  text-align: left;
   transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.hero-buttons a span {
+  color: var(--pink);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .hero-buttons a:hover,
@@ -248,29 +341,54 @@ video {
   gap: 12px;
   width: min(900px, 100%);
   margin: 0 auto;
-  padding: 18px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 20px 70px rgba(36, 87, 166, 0.2);
+  padding: 22px 24px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.88);
+  border-radius: 8px 26px 8px 26px;
+  background:
+    linear-gradient(180deg, rgba(32, 65, 122, 0.88), rgba(18, 31, 61, 0.88)),
+    rgba(23, 34, 58, 0.9);
+  box-shadow: 0 20px 70px rgba(23, 34, 58, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(18px);
+}
+
+.dialogue-box::before,
+.dialogue-box::after {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 14px;
+  border-block: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+.dialogue-box::before {
+  left: 18px;
+  top: 10px;
+}
+
+.dialogue-box::after {
+  right: 18px;
+  bottom: 10px;
 }
 
 .speaker {
   grid-column: 1 / -1;
   width: fit-content;
-  margin: -34px 0 0;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: var(--deep);
+  margin: -44px 0 0;
+  padding: 9px 22px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 999px 999px 999px 6px;
+  background: linear-gradient(135deg, var(--pink), #ffb2cf);
   color: white;
   font-weight: 900;
+  box-shadow: 0 10px 24px rgba(23, 34, 58, 0.18);
 }
 
 #dialogueText {
   margin: 0;
+  color: white;
   font-weight: 800;
   line-height: 1.8;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.22);
 }
 
 .dialogue-box button,
@@ -285,9 +403,28 @@ video {
   align-self: end;
   padding: 10px 16px;
   border-radius: 999px;
-  background: var(--pink);
-  color: white;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--deep);
   font-weight: 900;
+}
+
+.dialogue-box button::after {
+  content: "▼";
+  margin-left: 8px;
+  color: white;
+  color: var(--pink);
+}
+
+.scroll-cue {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  margin: 0;
+  color: rgba(36, 87, 166, 0.62);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .section-title {
@@ -315,10 +452,28 @@ video {
 .work-card,
 .work-modal {
   border: 1px solid rgba(255, 255, 255, 0.92);
-  border-radius: 24px;
+  border-radius: 12px 30px 12px 30px;
   background: var(--glass);
   box-shadow: 0 22px 66px rgba(36, 87, 166, 0.16);
   backdrop-filter: blur(18px);
+}
+
+.profile-panel,
+.story-window {
+  position: relative;
+  border-top: 34px solid rgba(36, 87, 166, 0.84);
+}
+
+.profile-panel::before,
+.story-window::before {
+  content: "TEXT WINDOW";
+  position: absolute;
+  left: 18px;
+  top: -25px;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
 }
 
 .character-card {
@@ -365,8 +520,8 @@ video {
 
 .tab-list button {
   padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.68);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.78);
   color: var(--deep);
   font-weight: 900;
 }
@@ -421,8 +576,10 @@ video {
 .chapter {
   min-height: 104px;
   padding: 16px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px 22px 10px 22px;
+  background:
+    linear-gradient(90deg, rgba(255, 127, 178, 0.72) 0 6px, transparent 6px),
+    rgba(255, 255, 255, 0.6);
   box-shadow: 0 12px 36px rgba(36, 87, 166, 0.12);
   text-align: left;
   transition: transform 220ms ease, background 220ms ease;
@@ -434,7 +591,9 @@ video {
 }
 
 .chapter.is-active {
-  background: linear-gradient(135deg, var(--deep), #55b6ff);
+  background:
+    linear-gradient(90deg, var(--yellow) 0 6px, transparent 6px),
+    linear-gradient(135deg, var(--deep), #55b6ff);
   color: white;
 }
 
@@ -616,13 +775,18 @@ video {
   }
 
   .site-nav {
+    inset: 12px 12px auto;
+    flex-direction: row;
     justify-content: flex-start;
   }
 
-  .dialogue-box {
-    position: relative;
-    bottom: auto;
-    margin-top: -34px;
+  .system-dock {
+    display: none;
+  }
+
+  .site-nav a {
+    min-width: auto;
+    text-align: center;
   }
 
   .hero-portrait img {
@@ -658,6 +822,16 @@ video {
   }
 
   .dialogue-box {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
     grid-template-columns: 1fr;
+    width: auto;
+    padding: 18px 18px 16px;
+  }
+
+  .scroll-cue {
+    display: none;
   }
 }
