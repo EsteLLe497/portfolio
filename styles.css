@@ -57,18 +57,18 @@ body::before {
   width: var(--ripple-size);
   height: var(--ripple-size);
   transform: translate3d(-50%, -50%, 0) scale(0.18);
-  border: 1px solid rgba(77, 140, 166, 0.42);
+  border: 2px solid rgba(69, 132, 158, 0.58);
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 226, 122, 0.22), rgba(127, 169, 184, 0.13) 46%, transparent 68%);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.34), 0 0 42px rgba(127, 169, 184, 0.22);
+  background: radial-gradient(circle, rgba(255, 214, 72, 0.4), rgba(127, 169, 184, 0.22) 46%, transparent 70%);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.54), 0 0 52px rgba(127, 169, 184, 0.32);
   pointer-events: none;
   animation: ripple-expand 920ms ease-out forwards;
 }
 
 .ripple-effect.is-random {
   z-index: 0;
-  border-color: rgba(127, 169, 184, 0.22);
-  background: radial-gradient(circle, rgba(255, 226, 122, 0.12), rgba(127, 169, 184, 0.08) 48%, transparent 70%);
+  border-color: rgba(127, 169, 184, 0.34);
+  background: radial-gradient(circle, rgba(255, 214, 72, 0.2), rgba(127, 169, 184, 0.12) 48%, transparent 72%);
   animation-duration: 1800ms;
 }
 
