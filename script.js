@@ -103,7 +103,7 @@ const scheduleRandomRipple = () => {
 
   createRipple(Math.random() * window.innerWidth, Math.random() * window.innerHeight, {
     random: true,
-    size: Math.floor(150 + Math.random() * 220),
+    size: Math.floor(260 + Math.random() * 260),
   });
   window.setTimeout(scheduleRandomRipple, 1400 + Math.random() * 2200);
 };
