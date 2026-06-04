@@ -4,19 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio Kinetic Site</title>
-    <link rel="stylesheet" href="./styles.css?v=ripple-accent" />
+    <link rel="stylesheet" href="./styles.css?v=hero-parts" />
   </head>
   <body>
     <nav class="global-nav" aria-label="サイト内ナビゲーション">
       <a href="#top">TOP</a>
       <a href="#character">CHARACTER</a>
+      <a href="#spec">SPEC</a>
       <a href="#story">STORY</a>
       <a href="#gallery">HOBBY</a>
       <a href="#works">WORK</a>
     </nav>
 
     <main id="top">
-      <section class="hero panel">
+      <section class="hero panel hero-assembled">
         <div class="shards" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
@@ -29,8 +30,23 @@
             画像や動画はあとから差し替えられるよう、すべて仮素材で置いています。
           </p>
         </div>
-        <div class="key-visual">
-          <img src="./assets/hero-placeholder.png" alt="キービジュアル仮画像" />
+        <div class="key-visual hero-assembly" aria-label="Masatora's Portfolio main visual">
+          <img class="hero-bg" src="./assets/portfolio-main-visual-bg.png" alt="" aria-hidden="true" />
+          <div class="hero-motto">
+            <p>すべてを楽しむからこそ、より楽しい体験を創る。</p>
+            <span>Masatora's Portfolio</span>
+          </div>
+          <img class="hero-part hero-part-mouse" src="./assets/hero-parts/mouse.png" alt="" aria-hidden="true" />
+          <img class="hero-part hero-part-mic" src="./assets/hero-parts/mic.png" alt="" aria-hidden="true" />
+          <img class="hero-part hero-part-backpack" src="./assets/hero-parts/backpack.png" alt="" aria-hidden="true" />
+          <img class="hero-part hero-part-suit" src="./assets/hero-parts/suit.png" alt="" aria-hidden="true" />
+          <img class="hero-part hero-part-meat" src="./assets/hero-parts/meat.png" alt="" aria-hidden="true" />
+          <img class="hero-part hero-part-white-shirt" src="./assets/hero-parts/white-shirt.png" alt="" aria-hidden="true" />
+          <img class="hero-part hero-part-yellow" src="./assets/hero-parts/yellow.png" alt="" aria-hidden="true" />
+          <img class="hero-part hero-part-crouch" src="./assets/hero-parts/crouch.png" alt="" aria-hidden="true" />
+          <img class="hero-part hero-part-festival-food" src="./assets/hero-parts/festival-food.png" alt="" aria-hidden="true" />
+          <img class="hero-part hero-part-yukata" src="./assets/hero-parts/yukata.png" alt="" aria-hidden="true" />
+          <img class="hero-part hero-part-wink" src="./assets/hero-parts/wink.png" alt="" aria-hidden="true" />
         </div>
       </section>
 
@@ -116,13 +132,70 @@
                   <h3>About Me</h3>
                   <p class="about-me-text">
                     ゲーム制作では、実装を通してアイデアを形にすることを大切にしています。
-                    チーム制作では進行管理や情報共有も意識し、メンバーが作業しやすい環境づくりに取り組んできました。
+                    また、進行管理や情報共有も意識し、メンバーが作業しやすい環境づくりに取り組んできました。
                     読みやすく、改善しやすいコードを目指しながら、技術面とチーム開発の両方で貢献できるゲームプログラマーを目指しています。
                   </p>
                 </article>
               </div>
               <button class="character-arrow character-arrow-right" type="button" data-character-next aria-label="次のプロフィール">›</button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel spec" id="spec">
+        <header class="section-title">
+          <p>Stella of Portfolio</p>
+          <h2>SPEC</h2>
+        </header>
+        <div class="spec-layout">
+          <div class="spec-lead">
+            <p class="work-index">Personal Data</p>
+            <h3>Masatora Tanaka</h3>
+            <p>
+              制作だけでなく、普段の興味や人との関わり方も含めて、
+              田中雅虎という人間を知ってもらうためのプロフィールです。
+            </p>
+          </div>
+          <div class="spec-board" aria-label="詳細プロフィール">
+            <dl class="spec-table">
+              <div>
+                <dt>Name</dt>
+                <dd>田中 雅虎 / Tanaka Masatora</dd>
+              </div>
+              <div>
+                <dt>Birthday</dt>
+                <dd>2006年2月7日</dd>
+              </div>
+              <div>
+                <dt>From</dt>
+                <dd>神奈川県茅ケ崎市</dd>
+              </div>
+              <div>
+                <dt>School</dt>
+                <dd>HAL東京 ゲーム4年制学科 ゲーム制作コース</dd>
+              </div>
+              <div>
+                <dt>Role</dt>
+                <dd>ゲームプログラマー</dd>
+              </div>
+              <div>
+                <dt>Hobby</dt>
+                <dd>釣り、謎解き、旅行、スポーツ、ゲーム制作</dd>
+              </div>
+              <div>
+                <dt>Favorite</dt>
+                <dd>ラーメン、HIPHOP、両生類と爬虫類</dd>
+              </div>
+              <div>
+                <dt>Personality</dt>
+                <dd>場を明るくしながら、やるべきことは最後まで進めるタイプです。</dd>
+              </div>
+              <div>
+                <dt>Motivation</dt>
+                <dd>自分が楽しんできた体験を、今度は誰かに届けられる形にしたいです。</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
@@ -390,6 +463,6 @@
       </section>
     </div>
 
-    <script src="./script.js?v=ripple-accent"></script>
+    <script src="./script.js?v=hero-parts"></script>
   </body>
 </html>

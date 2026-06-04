@@ -18,6 +18,8 @@ const revealTargets = document.querySelectorAll([
   ".section-title",
   ".story-text",
   ".life-chart",
+  ".spec-lead",
+  ".spec-table div",
   ".character-portrait",
   ".character-copy",
   ".hobby-card",
@@ -103,12 +105,12 @@ const scheduleRandomRipple = () => {
 
   createRipple(Math.random() * window.innerWidth, Math.random() * window.innerHeight, {
     random: true,
-    size: Math.floor(260 + Math.random() * 260),
+    size: Math.floor(360 + Math.random() * 520),
   });
-  window.setTimeout(scheduleRandomRipple, 1400 + Math.random() * 2200);
+  window.setTimeout(scheduleRandomRipple, 700 + Math.random() * 1100);
 };
 
-window.setTimeout(scheduleRandomRipple, 900);
+window.setTimeout(scheduleRandomRipple, 500);
 
 const characterCarousel = document.querySelector(".character-carousel");
 
