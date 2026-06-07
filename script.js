@@ -20,6 +20,8 @@ const revealTargets = document.querySelectorAll([
   ".life-chart",
   ".spec-lead",
   ".spec-table div",
+  ".contact-layout",
+  ".contact-list div",
   ".character-portrait",
   ".character-copy",
   ".hobby-card",
@@ -138,7 +140,7 @@ if (characterCarousel) {
 }
 
 const hobbyOpenButtons = document.querySelectorAll("[data-hobby-open]");
-const hobbyModals = [...document.querySelectorAll("#fishing-modal, #travel-modal")];
+const hobbyModals = [...document.querySelectorAll("#fishing-modal, #nazotoki-modal, #travel-modal, #sports-modal")];
 
 const closeHobbyModals = () => {
   for (const modal of hobbyModals) {
@@ -170,9 +172,13 @@ document.addEventListener("keydown", (event) => {
 });
 
 const workOpenButtons = document.querySelectorAll("[data-work-open]");
-const workModal = document.querySelector("#gamma-modal");
+const workModals = [...document.querySelectorAll(".work-modal[id$='-modal']")].filter((modal) => {
+  return modal.querySelector(".work-slide");
+});
 
-if (workModal) {
+const setupWorkModal = (workModal) => {
+  const workKey = workModal.id.replace("-modal", "");
+  const openButtons = [...workOpenButtons].filter((button) => button.dataset.workOpen === workKey);
   const slides = [...workModal.querySelectorAll(".work-slide")];
   const closeButtons = workModal.querySelectorAll("[data-work-close]");
   const prevButton = workModal.querySelector("[data-slide-prev]");
@@ -227,7 +233,7 @@ if (workModal) {
     stopVideos();
   };
 
-  for (const button of workOpenButtons) {
+  for (const button of openButtons) {
     button.addEventListener("click", openModal);
   }
 
@@ -264,4 +270,8 @@ if (workModal) {
     if (event.key === "ArrowLeft") showSlide(currentSlide - 1);
     if (event.key === "ArrowRight") showSlide(currentSlide + 1);
   });
+};
+
+for (const workModal of workModals) {
+  setupWorkModal(workModal);
 }

@@ -14,6 +14,7 @@
       <a href="#story">STORY</a>
       <a href="#gallery">HOBBY</a>
       <a href="#works">WORK</a>
+      <a href="#contact">CONTACT</a>
     </nav>
 
     <main id="top">
@@ -152,10 +153,6 @@
           <div class="spec-lead">
             <p class="work-index">Personal Data</p>
             <h3>Masatora Tanaka</h3>
-            <p>
-              制作だけでなく、普段の興味や人との関わり方も含めて、
-              田中雅虎という人間を知ってもらうためのプロフィールです。
-            </p>
           </div>
           <div class="spec-board" aria-label="詳細プロフィール">
             <dl class="spec-table">
@@ -185,7 +182,7 @@
               </div>
               <div>
                 <dt>Favorite</dt>
-                <dd>ラーメン、HIPHOP、両生類と爬虫類</dd>
+                <dd>ラーメン、HIPHOP、両生類と爬虫類、ノベルゲーム（特に泣きゲー）</dd>
               </div>
               <div>
                 <dt>Personality</dt>
@@ -205,17 +202,6 @@
           <p>Stella of Portfolio</p>
           <h2>STORY</h2>
         </header>
-        <div class="story-text">
-          <p>古い街の光が、まだ空の底で瞬いている。</p>
-          <p>
-            記録を運ぶ者は、壊れかけた端末と一枚の写真を抱え、
-            作品の断片が眠る場所へ向かう。
-          </p>
-          <p>
-            旅の途中で出会うのは、まだ名前のないスチル、書きかけの物語、
-            そして次に作るべきものの予感だった。
-          </p>
-        </div>
         <div class="life-chart" aria-label="ライフラインチャート">
           <div class="life-chart-head">
             <p>Life Line Chart</p>
@@ -273,12 +259,18 @@
             <span class="hobby-frame"><img src="./assets/hobby-fishing.jpg" alt="釣りの写真" /></span>
             <span class="hobby-caption">釣り</span>
           </button>
-          <figure><img src="./assets/hobby-nazotoki.jpg" alt="謎解きの写真" /><figcaption>謎解き</figcaption></figure>
+          <button class="hobby-card" type="button" data-hobby-open="nazotoki">
+            <span class="hobby-frame"><img src="./assets/hobby-nazotoki.jpg" alt="謎解きの写真" /></span>
+            <span class="hobby-caption">謎解き</span>
+          </button>
           <button class="hobby-card" type="button" data-hobby-open="travel">
             <span class="hobby-frame"><img src="./assets/hobby-travel.png" alt="旅行の写真" /></span>
             <span class="hobby-caption">旅行</span>
           </button>
-          <figure><img src="./assets/hobby-sports.png" alt="スポーツの写真" /><figcaption>スポーツ</figcaption></figure>
+          <button class="hobby-card" type="button" data-hobby-open="sports">
+            <span class="hobby-frame"><img src="./assets/hobby-sports.png" alt="スポーツの写真" /></span>
+            <span class="hobby-caption">スポーツ</span>
+          </button>
         </div>
       </section>
 
@@ -287,34 +279,431 @@
           <p>Stella of Portfolio</p>
           <h2>WORK</h2>
         </header>
-        <div class="works-grid">
-          <button class="work-card work-card-button" type="button" data-work-open="gamma">
-            <img src="./assets/work-gamma/gamma-1.webp" alt="GAMMAの制作画面" />
-            <div>
-              <p>Work 01</p>
-              <h3>GAMMA</h3>
-              <span>二年次のチーム制作作品。</span>
+        <div class="works-by-year">
+          <section class="work-year">
+            <div class="work-year-head">
+              <p>Year 01</p>
+              <h3>一年次</h3>
             </div>
-          </button>
-          <article class="work-card">
-            <img src="./assets/gallery-01.png" alt="制作作品仮画像2" />
-            <div>
-              <p>Work 02</p>
-              <h3>Still Gallery</h3>
-              <span>趣味の写真やスチルを並べるギャラリー。</span>
+            <div class="work-year-grid">
+              <button class="work-card work-card-button" type="button" data-work-open="sky">
+                <img src="./assets/work-sky/sky-cover.png" alt="Sky of Steelのタイトル画面" />
+                <div>
+                  <p>Work 01</p>
+                  <h3>Sky of Steel</h3>
+                  <span class="work-card-genre">2Dシューティングゲーム</span>
+                  <span class="work-card-summary">入学後初めての個人制作。</span>
+                  <div class="work-tags" aria-label="作品タグ">
+                    <span>個人制作</span>
+                    <span>Unity</span>
+                  </div>
+                </div>
+              </button>
+              <button class="work-card work-card-button" type="button" data-work-open="santa">
+                <img src="./assets/work-santa/santa-cover.png" alt="赤っ恥のサンタクロースのタイトル画面" />
+                <div>
+                  <p>Work 02</p>
+                  <h3>赤っ恥のサンタクロース</h3>
+                  <span class="work-card-genre">3D探索収集ゲーム</span>
+                  <span class="work-card-summary">Unity/C#で制作した個人制作課題。</span>
+                  <div class="work-tags" aria-label="作品タグ">
+                    <span>個人制作</span>
+                    <span>Unity</span>
+                  </div>
+                </div>
+              </button>
             </div>
-          </article>
-          <article class="work-card">
-            <img src="./assets/gallery-02.png" alt="制作作品仮画像3" />
-            <div>
-              <p>Work 03</p>
-              <h3>Character Page</h3>
-              <span>立ち絵とプロフィールを見せる紹介ページ。</span>
+          </section>
+          <section class="work-year">
+            <div class="work-year-head">
+              <p>Year 02</p>
+              <h3>二年次</h3>
             </div>
-          </article>
+            <div class="work-year-grid">
+              <button class="work-card work-card-button" type="button" data-work-open="ponkotsu">
+                <img src="./assets/work-ponkotsu/ponkotsu-cover.jpg" alt="ポンコツ魔女は生きてたい！のタイトル画面" />
+                <div>
+                  <p>Work 01</p>
+                  <h3>ポンコツ魔女は生きてたい！</h3>
+                  <span class="work-card-genre">2Dシューティング</span>
+                  <span class="work-card-summary">コンテスト受賞作品。</span>
+                  <div class="work-tags" aria-label="作品タグ">
+                    <span>個人制作</span>
+                    <span>受賞作品</span>
+                    <span>DirectX</span>
+                  </div>
+                </div>
+              </button>
+              <button class="work-card work-card-button" type="button" data-work-open="gamma">
+                <img src="./assets/work-gamma/gamma-1.webp" alt="GAMMAの制作画面" />
+                <div>
+                  <p>Work 02</p>
+                  <h3>GAMMA</h3>
+                  <span class="work-card-genre">3Dパズルアクション</span>
+                  <span class="work-card-summary">二年次のチーム制作作品。</span>
+                  <div class="work-tags" aria-label="作品タグ">
+                    <span>チーム制作</span>
+                    <span>DirectX</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </section>
+          <section class="work-year">
+            <div class="work-year-head">
+              <p>Year 03</p>
+              <h3>三年次</h3>
+            </div>
+            <div class="work-year-grid">
+              <button class="work-card work-card-button" type="button" data-work-open="dolly">
+                <img src="./assets/work-dolly/dolly-cover.png" alt="Dolly Frameのキービジュアル" />
+                <div>
+                  <p>Work 01</p>
+                  <h3>Dolly Frame</h3>
+                  <span class="work-card-genre">2Dパズルアクション</span>
+                  <span class="work-card-summary">ファインダー越しに世界を”とりかえる”新感覚2Dアクションゲームを制作中。</span>
+                  <div class="work-tags" aria-label="作品タグ">
+                    <span>チーム制作</span>
+                    <span>制作中</span>
+                    <span>DirectX</span>
+                  </div>
+                </div>
+              </button>
+              <button class="work-card work-card-button" type="button" data-work-open="kaktos">
+                <img src="./assets/work-kaktos/kaktos-editor.png" alt="Kaktos Engineのエディタ画面" />
+                <div>
+                  <p>Work 02</p>
+                  <h3>Kaktos Engine</h3>
+                  <span class="work-card-summary">C++で制作中のノベルゲーム向けエディタ。</span>
+                  <div class="work-tags" aria-label="作品タグ">
+                    <span>個人制作</span>
+                    <span>制作中</span>
+                    <span>C++</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="panel contact" id="contact">
+        <header class="section-title">
+          <p>Stella of Portfolio</p>
+          <h2>CONTACT</h2>
+        </header>
+        <div class="contact-layout">
+          <p>
+            制作や作品についてのご連絡は、メールまたはGitHubからお願いします。
+          </p>
+          <dl class="contact-list">
+            <div>
+              <dt>Mail</dt>
+              <dd><a href="mailto:abiz68.2727@gmail.com">abiz68.2727@gmail.com</a></dd>
+            </div>
+            <div>
+              <dt>GitHub</dt>
+              <dd><a href="https://github.com/EsteLLe497" target="_blank" rel="noopener noreferrer">github.com/EsteLLe497</a></dd>
+            </div>
+          </dl>
         </div>
       </section>
     </main>
+
+    <div class="work-modal" id="dolly-modal" aria-hidden="true">
+      <div class="work-modal-backdrop" data-work-close></div>
+      <section class="work-modal-panel" role="dialog" aria-modal="true" aria-labelledby="dolly-title">
+        <button class="modal-close" type="button" data-work-close aria-label="閉じる">×</button>
+        <div class="work-viewer">
+          <div class="viewer-media">
+            <button class="viewer-arrow viewer-arrow-left" type="button" data-slide-prev aria-label="前のメディア">‹</button>
+            <div class="viewer-stage" data-slide-stage>
+              <img class="work-slide is-active" src="./assets/work-dolly/dolly-cover.png" alt="Dolly Frame キービジュアル" />
+              <img class="work-slide" src="./assets/work-dolly/dolly-1.png" alt="Dolly Frame プレイ画面 1" />
+              <img class="work-slide" src="./assets/work-dolly/dolly-2.png" alt="Dolly Frame プレイ画面 2" />
+              <img class="work-slide" src="./assets/work-dolly/dolly-3.png" alt="Dolly Frame プレイ画面 3" />
+              <img class="work-slide" src="./assets/work-dolly/dolly-4.png" alt="Dolly Frame プレイ画面 4" />
+            </div>
+            <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次のメディア">›</button>
+          </div>
+          <div class="work-media-notes">
+            <p>Game Screenshots</p>
+            <div class="work-media-thumbs" aria-label="Dolly Frame スクリーンショット">
+              <button type="button" data-slide-jump="0">
+                <img src="./assets/work-dolly/dolly-cover.png" alt="キービジュアルのサムネイル" />
+                <span>Key Visual</span>
+              </button>
+              <button type="button" data-slide-jump="1">
+                <img src="./assets/work-dolly/dolly-1.png" alt="プレイ画面1のサムネイル" />
+                <span>Stage 01</span>
+              </button>
+              <button type="button" data-slide-jump="3">
+                <img src="./assets/work-dolly/dolly-3.png" alt="暗闇ステージのサムネイル" />
+                <span>Lighting</span>
+              </button>
+            </div>
+            <span class="work-media-caption">キービジュアルとプレイ画面をスライドで確認できます。</span>
+          </div>
+          <div class="work-ingenuity">
+            <p>工夫点</p>
+            <ul>
+              <li>キャプチャ可能対象にエフェクトを追加し、撮れるかどうかの判別を可視化しました。</li>
+              <li>地下ステージの負荷を軽減するため、巨大テクスチャの分割管理、未使用アセットの削除、エフェクト寿命管理、必要時生成を行い、描画・メモリ・Entity数の増加を抑えました。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="work-detail">
+          <p class="work-index">Work 01</p>
+          <h3 id="dolly-title">Dolly Frame</h3>
+          <p>三年次 チーム制作作品</p>
+          <dl>
+            <div><dt>制作期間</dt><dd>3か月</dd></div>
+            <div><dt>制作環境</dt><dd>DirectX</dd></div>
+            <div><dt>制作人数</dt><dd>10人</dd></div>
+            <div><dt>Repository</dt><dd><a class="work-repo-link" href="https://github.com/EsteLLe497/DollyFrame_jam" target="_blank" rel="noopener noreferrer">github.com/EsteLLe497/DollyFrame_jam</a></dd></div>
+          </dl>
+          <p>
+            ファインダー越しに世界を”とりかえる”新感覚2Dアクションゲームを制作中です。
+          </p>
+          <div class="work-pr-block">
+            <section>
+              <h4>担当範囲</h4>
+              <ul>
+                <li>リーダー、PM</li>
+                <li>コアプログラマー</li>
+              </ul>
+            </section>
+            <section>
+              <h4>実装内容</h4>
+              <ul>
+                <li>透過画像から当たり判定を算出するコードを実装</li>
+                <li>プレイヤー操作周りのシステムを実装</li>
+                <li>地下ステージの暗闇シェーディング、ライティングを実装</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </section>
+      <div class="image-lightbox" aria-hidden="true">
+        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
+        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
+          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
+          <img src="" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="work-modal" id="kaktos-modal" aria-hidden="true">
+      <div class="work-modal-backdrop" data-work-close></div>
+      <section class="work-modal-panel" role="dialog" aria-modal="true" aria-labelledby="kaktos-title">
+        <button class="modal-close" type="button" data-work-close aria-label="閉じる">×</button>
+        <div class="work-viewer">
+          <div class="viewer-media">
+            <button class="viewer-arrow viewer-arrow-left" type="button" data-slide-prev aria-label="前のメディア">‹</button>
+            <div class="viewer-stage" data-slide-stage>
+              <img class="work-slide is-active" src="./assets/work-kaktos/kaktos-editor.png" alt="Kaktos Engine エディタ画面" />
+              <img class="work-slide" src="./assets/work-kaktos/kaktos-flow.png" alt="Kaktos Engine フローグラフ画面" />
+              <img class="work-slide" src="./assets/work-kaktos/kaktos-world.png" alt="Kaktos Engine 作品設計画面" />
+            </div>
+            <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次のメディア">›</button>
+          </div>
+          <div class="work-ingenuity">
+            <p>工夫点</p>
+            <ul>
+              <li>C++ / Win32 APIベースで、独自のゲームエディタとランタイムを実装しています。</li>
+              <li>シナリオコマンドを構造化して管理し、プレビュー再生・インスペクタ編集・フローグラフ表示に同じデータを利用できるようにしました。</li>
+              <li>変数、分岐、選択肢、キャラクター表示など、ノベルゲームに必要な基本システムをエディタ上から編集できる形にしました。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="work-detail">
+          <p class="work-index">Work 02</p>
+          <h3 id="kaktos-title">Kaktos Engine</h3>
+          <p>三年次 制作中作品</p>
+          <dl>
+            <div><dt>制作期間</dt><dd>3か月</dd></div>
+            <div><dt>制作環境</dt><dd>C++</dd></div>
+            <div><dt>制作人数</dt><dd>1人</dd></div>
+            <div><dt>Repository</dt><dd><span class="work-repo-soon">なし</span></dd></div>
+          </dl>
+          <p>
+            C++で制作しているノベルゲーム向けエディタです。
+            ティラノビルダーやNolaを参考に、シナリオ編集、プレビュー、素材管理、変数管理、分岐のフローグラフ表示、作品設計機能を実装しています。
+            制作中に必要な情報を一画面で扱えるようにし、イベント編集や変数操作をインスペクタから直感的に行える点を重視しました。
+          </p>
+        </div>
+      </section>
+      <div class="image-lightbox" aria-hidden="true">
+        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
+        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
+          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
+          <img src="" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="work-modal" id="sky-modal" aria-hidden="true">
+      <div class="work-modal-backdrop" data-work-close></div>
+      <section class="work-modal-panel" role="dialog" aria-modal="true" aria-labelledby="sky-title">
+        <button class="modal-close" type="button" data-work-close aria-label="閉じる">×</button>
+        <div class="work-viewer">
+          <div class="viewer-media">
+            <button class="viewer-arrow viewer-arrow-left" type="button" data-slide-prev aria-label="前のメディア">‹</button>
+            <div class="viewer-stage" data-slide-stage>
+              <img class="work-slide is-active" src="./assets/work-sky/sky-cover.png" alt="Sky of Steel タイトル画面" />
+              <img class="work-slide" src="./assets/work-sky/sky-1.png" alt="Sky of Steel 機体選択画面 1" />
+              <img class="work-slide" src="./assets/work-sky/sky-2.png" alt="Sky of Steel 機体選択画面 2" />
+              <img class="work-slide" src="./assets/work-sky/sky-3.png" alt="Sky of Steel 機体選択画面 3" />
+              <img class="work-slide" src="./assets/work-sky/sky-4.png" alt="Sky of Steel プレイ画面 1" />
+              <img class="work-slide" src="./assets/work-sky/sky-5.png" alt="Sky of Steel プレイ画面 2" />
+              <img class="work-slide" src="./assets/work-sky/sky-6.png" alt="Sky of Steel プレイ画面 3" />
+            </div>
+            <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次のメディア">›</button>
+          </div>
+          <div class="work-ingenuity">
+            <p>工夫点</p>
+            <ul>
+              <li>機体を3種類用意し、それぞれ違う役割を持たせることで、遊び方の幅を広げました。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="work-detail">
+          <p class="work-index">Work 01</p>
+          <h3 id="sky-title">Sky of Steel</h3>
+          <p>入学後初めての個人制作</p>
+          <dl>
+            <div><dt>制作期間</dt><dd>1か月</dd></div>
+            <div><dt>制作環境</dt><dd>Unity / ビジュアルスクリプト</dd></div>
+            <div><dt>制作人数</dt><dd>1人</dd></div>
+            <div><dt>Repository</dt><dd><span class="work-repo-soon">なし</span></dd></div>
+          </dl>
+          <p>
+            入学後初めての個人制作として、Unityのノードスクリプトを使用して作成しました。
+            ゲームとしての完成度は粗い部分もありますが、この制作をきっかけにゲームが形になっていく嬉しさを感じ、ゲーム制作の楽しさを実感するようになりました。
+          </p>
+        </div>
+      </section>
+      <div class="image-lightbox" aria-hidden="true">
+        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
+        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
+          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
+          <img src="" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="work-modal" id="santa-modal" aria-hidden="true">
+      <div class="work-modal-backdrop" data-work-close></div>
+      <section class="work-modal-panel" role="dialog" aria-modal="true" aria-labelledby="santa-title">
+        <button class="modal-close" type="button" data-work-close aria-label="閉じる">×</button>
+        <div class="work-viewer">
+          <div class="viewer-media">
+            <button class="viewer-arrow viewer-arrow-left" type="button" data-slide-prev aria-label="前のメディア">‹</button>
+            <div class="viewer-stage" data-slide-stage>
+              <video class="work-slide is-active" src="./assets/work-santa/santa-demo.mp4" controls playsinline preload="metadata"></video>
+              <img class="work-slide" src="./assets/work-santa/santa-cover.png" alt="赤っ恥のサンタクロース タイトル画面" />
+              <img class="work-slide" src="./assets/work-santa/santa-1.png" alt="赤っ恥のサンタクロース プレイ画面 1" />
+              <img class="work-slide" src="./assets/work-santa/santa-2.png" alt="赤っ恥のサンタクロース プレイ画面 2" />
+              <img class="work-slide" src="./assets/work-santa/santa-3.png" alt="赤っ恥のサンタクロース ゲームオーバー画面" />
+              <img class="work-slide" src="./assets/work-santa/santa-4.png" alt="赤っ恥のサンタクロース リザルト画面" />
+            </div>
+            <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次のメディア">›</button>
+          </div>
+          <div class="work-ingenuity">
+            <p>工夫点</p>
+            <ul>
+              <li>雪パーティクルを制作し、冬の空気感と没入感が伝わるように演出しました。</li>
+              <li>クリア条件である板の回収は遊びやすく、サブ要素であるプレゼント回収は難度を上げ、やりごたえのあるゲーム体験を目指しました。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="work-detail">
+          <p class="work-index">Work 02</p>
+          <h3 id="santa-title">赤っ恥のサンタクロース</h3>
+          <p>一年次 個人課題作品</p>
+          <dl>
+            <div><dt>制作期間</dt><dd>3日</dd></div>
+            <div><dt>制作環境</dt><dd>Unity / C#</dd></div>
+            <div><dt>制作人数</dt><dd>1人</dd></div>
+            <div><dt>Repository</dt><dd><span class="work-repo-soon">なし</span></dd></div>
+          </dl>
+          <p>
+            ハイパーカジュアルゲームらしい直感的な遊びやすさを意識しつつ、3D表現の強みを活かした画面づくりと程よい難易度調整に注力しました。
+          </p>
+        </div>
+      </section>
+      <div class="image-lightbox" aria-hidden="true">
+        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
+        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
+          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
+          <img src="" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="work-modal" id="ponkotsu-modal" aria-hidden="true">
+      <div class="work-modal-backdrop" data-work-close></div>
+      <section class="work-modal-panel" role="dialog" aria-modal="true" aria-labelledby="ponkotsu-title">
+        <button class="modal-close" type="button" data-work-close aria-label="閉じる">×</button>
+        <div class="work-viewer">
+          <div class="viewer-media">
+            <button class="viewer-arrow viewer-arrow-left" type="button" data-slide-prev aria-label="前のメディア">‹</button>
+            <div class="viewer-stage" data-slide-stage>
+              <video class="work-slide is-active" src="./assets/work-ponkotsu/ponkotsu-demo.mp4" controls playsinline preload="metadata"></video>
+              <img class="work-slide" src="./assets/work-ponkotsu/ponkotsu-cover.jpg" alt="ポンコツ魔女は生きてたい！ タイトル画面" />
+              <img class="work-slide" src="./assets/work-ponkotsu/ponkotsu-1.png" alt="ポンコツ魔女は生きてたい！ プレイ画面 1" />
+              <img class="work-slide" src="./assets/work-ponkotsu/ponkotsu-2.png" alt="ポンコツ魔女は生きてたい！ プレイ画面 2" />
+              <img class="work-slide" src="./assets/work-ponkotsu/ponkotsu-3.png" alt="ポンコツ魔女は生きてたい！ プレイ画面 3" />
+              <img class="work-slide" src="./assets/work-ponkotsu/ponkotsu-plan-1.png" alt="ポンコツ魔女は生きてたい！ 仕様メモ 1" />
+              <img class="work-slide" src="./assets/work-ponkotsu/ponkotsu-plan-2.png" alt="ポンコツ魔女は生きてたい！ 仕様メモ 2" />
+            </div>
+            <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次のメディア">›</button>
+          </div>
+          <div class="work-media-notes">
+            <p>Planning Assets</p>
+            <div class="work-media-thumbs" aria-label="ポンコツ魔女 制作管理資料">
+              <button type="button" data-slide-jump="5">
+                <img src="./assets/work-ponkotsu/ponkotsu-plan-1.png" alt="仕様メモ 1のサムネイル" />
+                <span>仕様メモ 01</span>
+              </button>
+              <button type="button" data-slide-jump="6">
+                <img src="./assets/work-ponkotsu/ponkotsu-plan-2.png" alt="仕様メモ 2のサムネイル" />
+                <span>仕様メモ 02</span>
+              </button>
+            </div>
+            <span class="work-media-caption">簡易的な仕様や工数管理を行い、制作をより効率的に進めました。</span>
+          </div>
+          <div class="work-ingenuity">
+            <p>工夫点</p>
+            <ul>
+              <li>短い制作期間の中で、印象に残るギミックや演出を作ることを心がけながら制作しました。</li>
+              <li>積極的に友人や先生にプレイしていただき、プレイ感の向上を目指しました。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="work-detail">
+          <p class="work-index">Work 01</p>
+          <h3 id="ponkotsu-title">ポンコツ魔女は生きてたい！</h3>
+          <p>二年次に制作したコンテスト受賞作品です。</p>
+          <dl>
+            <div><dt>制作期間</dt><dd>1か月</dd></div>
+            <div><dt>制作環境</dt><dd>OpenGL → DirectXに移植</dd></div>
+            <div><dt>制作人数</dt><dd>1人</dd></div>
+            <div><dt>Repository</dt><dd><a class="work-repo-link" href="https://github.com/EsteLLe497/PonkotsuWitch" target="_blank" rel="noopener noreferrer">github.com/EsteLLe497/PonkotsuWitch</a></dd></div>
+          </dl>
+          <p>
+            元はSwitchゲームコンテスト用にOpenGLで作成した作品で、後にPCでもプレイできるようにDirectXに移植しました。
+          </p>
+        </div>
+      </section>
+      <div class="image-lightbox" aria-hidden="true">
+        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
+        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
+          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
+          <img src="" alt="" />
+        </div>
+      </div>
+    </div>
 
     <div class="work-modal" id="gamma-modal" aria-hidden="true">
       <div class="work-modal-backdrop" data-work-close></div>
@@ -362,13 +751,14 @@
           </div>
         </div>
         <div class="work-detail">
-          <p class="work-index">Work 01</p>
+          <p class="work-index">Work 02</p>
           <h3 id="gamma-title">GAMMA</h3>
           <p>二年次のチーム制作作品。</p>
           <dl>
             <div><dt>制作期間</dt><dd>4か月</dd></div>
             <div><dt>制作環境</dt><dd>DirectX11</dd></div>
             <div><dt>制作人数</dt><dd>11人</dd></div>
+            <div><dt>Repository</dt><dd><a class="work-repo-link" href="https://github.com/retsu-hal/HEW-gamma" target="_blank" rel="noopener noreferrer">github.com/retsu-hal/HEW-gamma</a></dd></div>
           </dl>
           <p>
             初めてのチーム制作作品として、リーダー兼PMを担当しました。
@@ -430,6 +820,36 @@
       </section>
     </div>
 
+    <div class="work-modal" id="nazotoki-modal" aria-hidden="true">
+      <div class="work-modal-backdrop" data-hobby-close></div>
+      <section class="work-modal-panel hobby-modal-panel travel-modal-panel" role="dialog" aria-modal="true" aria-labelledby="nazotoki-title">
+        <button class="modal-close" type="button" data-hobby-close aria-label="閉じる">×</button>
+        <div class="hobby-photo-grid travel-photo-grid">
+          <figure>
+            <img src="./assets/hobby-nazotoki-sheet.jpg" alt="謎解きシートの写真" />
+            <figcaption>Puzzle sheet</figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/hobby-nazotoki-aquarium.jpg" alt="水族館で撮影した写真" />
+            <figcaption>Aquarium event</figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/hobby-nazotoki-event.jpg" alt="リアル謎解きイベントの写真" />
+            <figcaption>Escape event</figcaption>
+          </figure>
+        </div>
+        <div class="hobby-detail">
+          <p class="work-index">Hobby 02</p>
+          <h3 id="nazotoki-title">謎解き</h3>
+          <p>
+            謎解きゲームやリアル脱出イベントなど、頭と体を使うアクティビティが好きです。
+            謎を解くだけでなく、自分で謎を作ることもしています。
+            今年は新潟のイベントに参加するため、夜行バスで日帰りの弾丸旅行を決行したこともあります。
+          </p>
+        </div>
+      </section>
+    </div>
+
     <div class="work-modal" id="travel-modal" aria-hidden="true">
       <div class="work-modal-backdrop" data-hobby-close></div>
       <section class="work-modal-panel hobby-modal-panel travel-modal-panel" role="dialog" aria-modal="true" aria-labelledby="travel-title">
@@ -458,6 +878,32 @@
           <p>
             ちょっとした自慢として、北朝鮮を訪れたことがあります。
             3枚目の写真は旧38度線付近で撮影したもので、<br />今でも強く印象に残っている旅の一つです。
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div class="work-modal" id="sports-modal" aria-hidden="true">
+      <div class="work-modal-backdrop" data-hobby-close></div>
+      <section class="work-modal-panel hobby-modal-panel" role="dialog" aria-modal="true" aria-labelledby="sports-title">
+        <button class="modal-close" type="button" data-hobby-close aria-label="閉じる">×</button>
+        <div class="hobby-photo-grid">
+          <figure>
+            <img src="./assets/hobby-sports-billiards.png" alt="ビリヤードをしている写真" />
+            <figcaption>Indoor sports</figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/hobby-sports-basketball.png" alt="バスケットボールをしている写真" />
+            <figcaption>After school</figcaption>
+          </figure>
+        </div>
+        <div class="hobby-detail">
+          <p class="work-index">Hobby 04</p>
+          <h3 id="sports-title">スポーツ</h3>
+          <p>
+            休日や学校帰りに体を動かすのが好きです。
+            元々野球をやっていた影響で、球技が特に好きです。
+            他にもインドアスポーツやウィンタースポーツなど幅広い運動をしており、地元では友人と草野球を行ったりしています。
           </p>
         </div>
       </section>
