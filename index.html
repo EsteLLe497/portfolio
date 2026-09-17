@@ -361,11 +361,11 @@
                   <p>Work 01</p>
                   <h3>Dolly Frame</h3>
                   <span class="work-card-genre">2Dパズルアクション</span>
-                  <span class="work-card-summary">ファインダー越しに世界を”とりかえる”新感覚2Dアクションゲームを制作中。</span>
+                  <span class="work-card-summary">ファインダーで切り取った景色を配置し、道を作って進む2Dパズルアクション。</span>
                   <div class="work-tags" aria-label="作品タグ">
                     <span>チーム制作</span>
-                    <span>制作中</span>
                     <span>DirectX</span>
+                    <span>神エボ一次審査通過</span>
                   </div>
                 </div>
               </button>
@@ -418,12 +418,13 @@
           <div class="viewer-media">
             <button class="viewer-arrow viewer-arrow-left" type="button" data-slide-prev aria-label="前のメディア">‹</button>
             <div class="viewer-stage" data-slide-stage>
-              <video class="work-slide is-active" src="./assets/work-dolly/dolly-demo.mp4" controls playsinline preload="metadata"></video>
+              <video class="work-slide is-active" src="./assets/work-dolly/dolly-demo.mp4?v=20260917" controls playsinline preload="metadata"></video>
               <img class="work-slide" src="./assets/work-dolly/dolly-cover.png" alt="Dolly Frame キービジュアル" />
               <img class="work-slide" src="./assets/work-dolly/dolly-1.png" alt="Dolly Frame プレイ画面 1" />
               <img class="work-slide" src="./assets/work-dolly/dolly-2.png" alt="Dolly Frame プレイ画面 2" />
               <img class="work-slide" src="./assets/work-dolly/dolly-3.png" alt="Dolly Frame プレイ画面 3" />
               <img class="work-slide" src="./assets/work-dolly/dolly-4.png" alt="Dolly Frame プレイ画面 4" />
+              <img class="work-slide" src="./assets/work-dolly/dolly-final-stage.png" alt="Dolly Frame 完成版のステージ画面" />
             </div>
             <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次のメディア">›</button>
           </div>
@@ -434,9 +435,9 @@
                 <img src="./assets/work-dolly/dolly-cover.png" alt="キービジュアルのサムネイル" />
                 <span>Key Visual</span>
               </button>
-              <button type="button" data-slide-jump="2">
-                <img src="./assets/work-dolly/dolly-1.png" alt="プレイ画面1のサムネイル" />
-                <span>Stage 01</span>
+              <button type="button" data-slide-jump="6">
+                <img src="./assets/work-dolly/dolly-final-stage.png" alt="完成版ステージのサムネイル" />
+                <span>Final Stage</span>
               </button>
               <button type="button" data-slide-jump="4">
                 <img src="./assets/work-dolly/dolly-3.png" alt="暗闇ステージのサムネイル" />
@@ -448,8 +449,10 @@
           <div class="work-ingenuity">
             <p>工夫点</p>
             <ul>
-              <li>キャプチャ可能対象にエフェクトを追加し、撮れるかどうかの判別を可視化しました。</li>
-              <li>地下ステージの負荷を軽減するため、巨大テクスチャの分割管理、未使用アセットの削除、エフェクト寿命管理、必要時生成を行い、描画・メモリ・Entity数の増加を抑えました。</li>
+              <li>撮影できる対象にエフェクトを付け、プレイヤーが撮影可否を画面上で判断できるようにしました。</li>
+              <li>透過画像の形状に合わせて当たり判定を生成し、見た目と衝突判定のずれを抑えました。</li>
+              <li>各マップのポストプロセスとライティングを担当し、地下マップでは暗闇の演出とプレイヤーの視認性を両立させました。</li>
+              <li>地下マップの巨大テクスチャを分割して管理し、未使用アセットの削除、エフェクトの寿命管理、必要時の生成を実施。描画・メモリ・Entity数の増加を抑えました。</li>
             </ul>
           </div>
         </div>
@@ -464,22 +467,22 @@
             <div><dt>Repository</dt><dd><a class="work-repo-link" href="https://github.com/EsteLLe497/DollyFrame_jam" target="_blank" rel="noopener noreferrer">github.com/EsteLLe497/DollyFrame_jam</a></dd></div>
           </dl>
           <p>
-            ファインダー越しに世界を”とりかえる”新感覚2Dアクションゲームを制作中です。
+            ファインダーで切り取った景色をステージに配置し、地形を変えながら進む2Dパズルアクションです。10人のチームで制作し、リーダー・PMとして進行管理を行いながら、プレイヤー操作や当たり判定、各マップの描画演出を実装しました。
           </p>
           <div class="work-pr-block">
             <section>
               <h4>担当範囲</h4>
               <ul>
-                <li>リーダー、PM</li>
-                <li>コアプログラマー</li>
+                <li>リーダー・PMとして制作進行を管理</li>
+                <li>コアプログラマーとしてゲームプレイと描画演出を実装</li>
               </ul>
             </section>
             <section>
               <h4>実装内容</h4>
               <ul>
-                <li>透過画像から当たり判定を算出するコードを実装</li>
-                <li>プレイヤー操作周りのシステムを実装</li>
-                <li>地下ステージの暗闇シェーディング、ライティングを実装</li>
+                <li>透過画像を基にした当たり判定の生成</li>
+                <li>プレイヤー操作と撮影可能対象の表示</li>
+                <li>各マップのポストプロセス・ライティング、地下マップの暗闇シェーディング</li>
               </ul>
             </section>
           </div>
