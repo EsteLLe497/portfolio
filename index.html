@@ -382,6 +382,19 @@
                   </div>
                 </div>
               </button>
+              <button class="work-card work-card-button" type="button" data-work-open="akatuki">
+                <img src="./assets/work-akatuki/akatuki-cover.jpg" alt="約束は暁の海でのタイトル画面" />
+                <div>
+                  <p>Work 03</p>
+                  <h3>約束は暁の海で</h3>
+                  <span class="work-card-genre">3DホラーADV</span>
+                  <span class="work-card-summary">水族館を舞台にした3DホラーADV。</span>
+                  <div class="work-tags" aria-label="作品タグ">
+                    <span>個人課題</span>
+                    <span>DirectX</span>
+                  </div>
+                </div>
+              </button>
             </div>
           </section>
         </div>
@@ -535,6 +548,42 @@
             ティラノビルダーやNolaを参考に、シナリオ編集、プレビュー、素材管理、変数管理、分岐のフローグラフ表示、作品設計機能を実装しています。
             制作中に必要な情報を一画面で扱えるようにし、イベント編集や変数操作をインスペクタから直感的に行える点を重視しました。
           </p>
+        </div>
+      </section>
+      <div class="image-lightbox" aria-hidden="true">
+        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
+        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
+          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
+          <img src="" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="work-modal" id="akatuki-modal" aria-hidden="true">
+      <div class="work-modal-backdrop" data-work-close></div>
+      <section class="work-modal-panel" role="dialog" aria-modal="true" aria-labelledby="akatuki-title">
+        <button class="modal-close" type="button" data-work-close aria-label="閉じる">×</button>
+        <div class="work-viewer">
+          <div class="viewer-media">
+            <button class="viewer-arrow viewer-arrow-left" type="button" data-slide-prev aria-label="前のメディア">‹</button>
+            <div class="viewer-stage" data-slide-stage>
+              <video class="work-slide is-active" src="./assets/work-akatuki/akatuki-demo.mp4" poster="./assets/work-akatuki/akatuki-cover.jpg" controls playsinline preload="metadata"></video>
+              <img class="work-slide" src="./assets/work-akatuki/akatuki-cover.jpg" alt="約束は暁の海で タイトル画面" />
+            </div>
+            <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次のメディア">›</button>
+          </div>
+        </div>
+        <div class="work-detail">
+          <p class="work-index">Work 03</p>
+          <h3 id="akatuki-title">約束は暁の海で</h3>
+          <p>三年次 個人課題作品</p>
+          <dl>
+            <div><dt>制作期間</dt><dd>2か月</dd></div>
+            <div><dt>制作環境</dt><dd>DirectX</dd></div>
+            <div><dt>制作人数</dt><dd>1人</dd></div>
+            <div><dt>Repository</dt><dd><a class="work-repo-link" href="https://github.com/EsteLLe497/Aquallium_Game" target="_blank" rel="noopener noreferrer">github.com/EsteLLe497/Aquallium_Game</a></dd></div>
+          </dl>
+          <p>水族館を舞台にした3DホラーADVです。三年次の個人課題として、DirectXで制作しました。</p>
         </div>
       </section>
       <div class="image-lightbox" aria-hidden="true">
