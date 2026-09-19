@@ -569,8 +569,42 @@
             <div class="viewer-stage" data-slide-stage>
               <video class="work-slide is-active" src="./assets/work-akatuki/akatuki-demo.mp4" poster="./assets/work-akatuki/akatuki-cover.jpg" controls playsinline preload="metadata"></video>
               <img class="work-slide" src="./assets/work-akatuki/akatuki-cover.jpg" alt="約束は暁の海で タイトル画面" />
+              <img class="work-slide" src="./assets/work-akatuki/akatuki-aquarium.png" alt="水槽内を見渡すゲーム画面" />
+              <img class="work-slide" src="./assets/work-akatuki/akatuki-tunnel.png" alt="水族館のトンネルを歩くゲーム画面" />
+              <img class="work-slide" src="./assets/work-akatuki/akatuki-ocean.png" alt="海岸の水面表現" />
+              <img class="work-slide" src="./assets/work-akatuki/akatuki-dialogue.png" alt="会話とホラー演出のゲーム画面" />
+              <img class="work-slide" src="./assets/work-akatuki/akatuki-horror.png" alt="懐中電灯と手形によるホラー演出" />
+              <img class="work-slide" src="./assets/work-akatuki/akatuki-story-editor.png" alt="シナリオ編集とプレビューを行う専用ツール" />
+              <img class="work-slide" src="./assets/work-akatuki/akatuki-flow-chart.png" alt="分岐を可視化するストーリーフローチャート" />
             </div>
             <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次のメディア">›</button>
+          </div>
+          <div class="work-media-notes">
+            <p>Game &amp; Development Tool</p>
+            <div class="work-media-thumbs" aria-label="約束は暁の海でのスクリーンショット">
+              <button type="button" data-slide-jump="2">
+                <img src="./assets/work-akatuki/akatuki-aquarium.png" alt="水槽内のサムネイル" />
+                <span>Aquarium</span>
+              </button>
+              <button type="button" data-slide-jump="6">
+                <img src="./assets/work-akatuki/akatuki-horror.png" alt="ホラー演出のサムネイル" />
+                <span>Horror</span>
+              </button>
+              <button type="button" data-slide-jump="7">
+                <img src="./assets/work-akatuki/akatuki-story-editor.png" alt="シナリオ編集ツールのサムネイル" />
+                <span>Story Tool</span>
+              </button>
+            </div>
+            <span class="work-media-caption">ゲーム画面と、制作効率を上げるために開発したシナリオツールです。</span>
+          </div>
+          <div class="work-ingenuity">
+            <p>工夫点</p>
+            <ul>
+              <li>シェーダープログラミングを学び、水槽・トンネル・海岸などの水辺表現に注力しました。光、色、反射の見え方を場面ごとに調整し、水族館らしい静けさと不穏さを演出しています。</li>
+              <li>暗所では懐中電灯の照射範囲と手形の演出を組み合わせ、視界の制限そのものが緊張感につながるように設計しました。</li>
+              <li>ダイアログファイルへ直接記述する制作フローを見直し、シーン編集・会話編集・プレビュー・分岐のフローチャート表示を一つにまとめた専用ツールを開発しました。</li>
+              <li>ツール上でシナリオを確認・編集できるため、会話の調整や分岐の確認をゲーム本体のビルド前に行え、シナリオ制作の反復を短縮しました。</li>
+            </ul>
           </div>
         </div>
         <div class="work-detail">
@@ -583,7 +617,7 @@
             <div><dt>制作人数</dt><dd>1人</dd></div>
             <div><dt>Repository</dt><dd><a class="work-repo-link" href="https://github.com/EsteLLe497/Aquallium_Game" target="_blank" rel="noopener noreferrer">github.com/EsteLLe497/Aquallium_Game</a></dd></div>
           </dl>
-          <p>水族館を舞台にした3DホラーADVです。三年次の個人課題として、DirectXで制作しました。</p>
+          <p>水族館を舞台に、探索と会話を通して真相を追う3DホラーADVです。三年次の個人課題としてDirectXで制作し、グラフィック表現と制作を支えるツール開発の両方に取り組みました。</p>
         </div>
       </section>
       <div class="image-lightbox" aria-hidden="true">
