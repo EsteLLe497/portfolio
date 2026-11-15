@@ -1118,38 +1118,30 @@ video.work-slide {
 
 .hobby-photo-grid {
   display: grid;
-  grid-template-columns: minmax(180px, 0.62fr) minmax(260px, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
-  align-items: stretch;
+  align-items: start;
+  min-width: 0;
 }
 
 .hobby-photo-grid figure {
   display: grid;
-  grid-template-rows: 1fr auto;
-  min-height: 100%;
+  min-width: 0;
 }
 
-.hobby-photo-grid img {
-  height: 100%;
-  min-height: 360px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.travel-photo-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.travel-photo-grid img {
-  min-height: 240px;
-}
-
-.travel-photo-grid figure:nth-child(3) {
+.hobby-photo-grid .hobby-photo-wide {
   grid-column: 1 / -1;
 }
 
-.travel-photo-grid figure:nth-child(3) img {
-  min-height: 240px;
+.hobby-photo-grid img {
+  display: block;
+  aspect-ratio: auto;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 440px;
+  margin-inline: auto;
 }
 
 .hobby-detail {
@@ -1779,8 +1771,7 @@ figcaption {
     padding-top: 0;
   }
 
-  .hobby-modal-panel,
-  .hobby-photo-grid {
+  .hobby-modal-panel {
     grid-template-columns: 1fr;
   }
 
@@ -1790,14 +1781,6 @@ figcaption {
 
   .spec-lead {
     position: static;
-  }
-
-  .travel-photo-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hobby-photo-grid img {
-    min-height: 260px;
   }
 
   .work-viewer {
