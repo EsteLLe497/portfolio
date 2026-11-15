@@ -139,6 +139,49 @@ if (characterCarousel) {
   });
 }
 
+// Use one scrollable photo viewer for both sections.
+const photoDialog = document.querySelector("#photo-viewer");
+const photoTrack = photoDialog.querySelector(".photo-track");
+const photoPrev = photoDialog.querySelector("[data-photo-prev]");
+const photoNext = photoDialog.querySelector("[data-photo-next]");
+
+const updatePhotoControls = () => {
+  photoPrev.disabled = photoTrack.scrollLeft < 2;
+  photoNext.disabled = photoTrack.scrollWidth - photoTrack.clientWidth - photoTrack.scrollLeft < 2;
+};
+const movePhoto = (direction) => {
+  const index = Math.round(photoTrack.scrollLeft / photoTrack.clientWidth);
+  photoTrack.scrollTo({ left: (index + direction) * photoTrack.clientWidth });
+};
+photoPrev.addEventListener("click", () => movePhoto(-1));
+photoNext.addEventListener("click", () => movePhoto(1));
+photoTrack.addEventListener("scroll", updatePhotoControls, { passive: true });
+new ResizeObserver(updatePhotoControls).observe(photoTrack);
+photoDialog.addEventListener("keydown", (event) => {
+  if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+  event.preventDefault();
+  movePhoto(event.key === "ArrowLeft" ? -1 : 1);
+});
+photoDialog.addEventListener("close", () => photoTrack.replaceChildren());
+
+const openPhotoViewer = (selected, images) => {
+  // Preserve the gallery order and only insert the selected cover if it is missing.
+  const orderedPhotos = [...new Map(images.map((image) => [image.src, image])).values()];
+  if (!orderedPhotos.some((image) => image.src === selected.src)) orderedPhotos.unshift(selected);
+  photoTrack.replaceChildren(...orderedPhotos.map((image) => {
+    const frame = document.createElement("div");
+    const photo = new Image();
+    photo.src = image.src;
+    photo.alt = image.alt;
+    frame.append(photo);
+    return frame;
+  }));
+  photoDialog.showModal();
+  const index = orderedPhotos.findIndex((image) => image.src === selected.src);
+  photoTrack.scrollTo({ left: index * photoTrack.clientWidth, behavior: "instant" });
+  updatePhotoControls();
+};
+
 const hobbyOpenButtons = document.querySelectorAll("[data-hobby-open]");
 const hobbyModals = [...document.querySelectorAll("#fishing-modal, #nazotoki-modal, #travel-modal, #sports-modal")];
 
@@ -154,6 +197,23 @@ for (const button of hobbyOpenButtons) {
   button.addEventListener("click", () => {
     const modal = document.querySelector(`#${button.dataset.hobbyOpen}-modal`);
     if (!modal) return;
+    const grid = modal.querySelector(".hobby-photo-grid");
+    if (grid && !grid.querySelector(".hobby-cover-photo")) {
+      const cover = document.createElement("figure");
+      cover.className = "hobby-cover-photo";
+      cover.append(button.querySelector("img").cloneNode());
+      grid.prepend(cover);
+      const images = [...grid.querySelectorAll("img")];
+      for (const image of images) {
+        const photoButton = document.createElement("button");
+        photoButton.type = "button";
+        photoButton.className = "hobby-photo-button";
+        photoButton.setAttribute("aria-label", image.alt + "を拡大");
+        image.replaceWith(photoButton);
+        photoButton.append(image);
+        photoButton.addEventListener("click", () => openPhotoViewer(image, images));
+      }
+    }
     closeHobbyModals();
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
@@ -166,7 +226,7 @@ for (const button of document.querySelectorAll("[data-hobby-close]")) {
 }
 
 document.addEventListener("keydown", (event) => {
-  if (event.key !== "Escape") return;
+  if (event.key !== "Escape" || photoDialog.open) return;
   if (!hobbyModals.some((modal) => modal.classList.contains("is-open"))) return;
   closeHobbyModals();
 });
@@ -216,8 +276,7 @@ const setupWorkModal = (workModal) => {
   const prevButton = workModal.querySelector("[data-slide-prev]");
   const nextButton = workModal.querySelector("[data-slide-next]");
   const jumpButtons = workModal.querySelectorAll("[data-slide-jump]");
-  const imageLightbox = workModal.querySelector(".image-lightbox");
-  const imageLightboxImage = imageLightbox?.querySelector("img");
+  const photos = slides.filter((slide) => slide instanceof HTMLImageElement);
   let currentSlide = 0;
 
   const stopVideos = () => {
@@ -234,21 +293,7 @@ const setupWorkModal = (workModal) => {
     });
   };
 
-  const openImageLightbox = (image) => {
-    if (!imageLightbox || !imageLightboxImage || !image) return;
-    imageLightboxImage.src = image.currentSrc || image.src;
-    imageLightboxImage.alt = image.alt;
-    imageLightbox.classList.add("is-open");
-    imageLightbox.setAttribute("aria-hidden", "false");
-  };
-
-  const closeImageLightbox = () => {
-    if (!imageLightbox || !imageLightboxImage) return;
-    imageLightbox.classList.remove("is-open");
-    imageLightbox.setAttribute("aria-hidden", "true");
-    imageLightboxImage.removeAttribute("src");
-    imageLightboxImage.alt = "";
-  };
+  const openImageLightbox = (image) => openPhotoViewer(image, photos);
 
   const openModal = () => {
     workModal.classList.add("is-open");
@@ -261,7 +306,6 @@ const setupWorkModal = (workModal) => {
     workModal.classList.remove("is-open");
     workModal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
-    closeImageLightbox();
     stopVideos();
   };
 
@@ -296,16 +340,8 @@ const setupWorkModal = (workModal) => {
       if (selectedImage instanceof HTMLImageElement) openImageLightbox(selectedImage);
     });
   }
-  for (const button of workModal.querySelectorAll("[data-lightbox-close]")) {
-    button.addEventListener("click", closeImageLightbox);
-  }
-
   document.addEventListener("keydown", (event) => {
-    if (!workModal.classList.contains("is-open")) return;
-    if (event.key === "Escape" && imageLightbox?.classList.contains("is-open")) {
-      closeImageLightbox();
-      return;
-    }
+    if (photoDialog.open || !workModal.classList.contains("is-open")) return;
     if (event.key === "Escape") closeModal();
     if (event.key === "ArrowLeft") showSlide(currentSlide - 1);
     if (event.key === "ArrowRight") showSlide(currentSlide + 1);

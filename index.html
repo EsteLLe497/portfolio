@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio Kinetic Site</title>
-    <link rel="stylesheet" href="./styles.css?v=work-rows-1" />
+    <link rel="stylesheet" href="./styles.css?v=photo-viewer-1" />
   </head>
   <body>
     <nav class="global-nav" aria-label="サイト内ナビゲーション">
@@ -503,13 +503,6 @@
           </div>
         </div>
       </section>
-      <div class="image-lightbox" aria-hidden="true">
-        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
-        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
-          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
-          <img src="" alt="" />
-        </div>
-      </div>
     </div>
 
     <div class="work-modal" id="kaktos-modal" aria-hidden="true">
@@ -552,13 +545,6 @@
           </p>
         </div>
       </section>
-      <div class="image-lightbox" aria-hidden="true">
-        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
-        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
-          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
-          <img src="" alt="" />
-        </div>
-      </div>
     </div>
 
     <div class="work-modal" id="akatuki-modal" aria-hidden="true">
@@ -640,13 +626,6 @@
           </div>
         </div>
       </section>
-      <div class="image-lightbox" aria-hidden="true">
-        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
-        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
-          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
-          <img src="" alt="" />
-        </div>
-      </div>
     </div>
 
     <div class="work-modal" id="sky-modal" aria-hidden="true">
@@ -690,13 +669,6 @@
           </p>
         </div>
       </section>
-      <div class="image-lightbox" aria-hidden="true">
-        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
-        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
-          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
-          <img src="" alt="" />
-        </div>
-      </div>
     </div>
 
     <div class="work-modal" id="santa-modal" aria-hidden="true">
@@ -739,13 +711,6 @@
           </p>
         </div>
       </section>
-      <div class="image-lightbox" aria-hidden="true">
-        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
-        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
-          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
-          <img src="" alt="" />
-        </div>
-      </div>
     </div>
 
     <div class="work-modal" id="ponkotsu-modal" aria-hidden="true">
@@ -803,13 +768,6 @@
           </p>
         </div>
       </section>
-      <div class="image-lightbox" aria-hidden="true">
-        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
-        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
-          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
-          <img src="" alt="" />
-        </div>
-      </div>
     </div>
 
     <div class="work-modal" id="gamma-modal" aria-hidden="true">
@@ -889,13 +847,6 @@
           </div>
         </div>
       </section>
-      <div class="image-lightbox" aria-hidden="true">
-        <button class="image-lightbox-backdrop" type="button" data-lightbox-close aria-label="拡大画像を閉じる"></button>
-        <div class="image-lightbox-panel" role="dialog" aria-modal="true" aria-label="拡大画像">
-          <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="拡大画像を閉じる">×</button>
-          <img src="" alt="" />
-        </div>
-      </div>
     </div>
 
     <div class="work-modal" id="fishing-modal" aria-hidden="true">
@@ -1015,6 +966,14 @@
       </section>
     </div>
 
-    <script src="./script.js?v=work-rows-1"></script>
+    <dialog id="photo-viewer" aria-label="写真ギャラリー">
+      <form method="dialog">
+        <button type="submit" aria-label="拡大画像を閉じる" autofocus>×</button>
+      </form>
+      <div class="photo-track" tabindex="0" aria-label="拡大画像"></div>
+      <button type="button" data-photo-prev aria-label="前の写真">‹</button>
+      <button type="button" data-photo-next aria-label="次の写真">›</button>
+    </dialog>
+    <script src="./script.js?v=photo-viewer-1"></script>
   </body>
 </html>
