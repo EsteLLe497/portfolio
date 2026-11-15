@@ -205,13 +205,6 @@ for (const button of hobbyOpenButtons) {
       grid.prepend(cover);
       const images = [...grid.querySelectorAll("img")];
       for (const image of images) {
-        const figure = image.closest("figure");
-        const setPhotoOrientation = () => {
-          figure.classList.toggle("hobby-photo-wide", image.naturalWidth > image.naturalHeight);
-        };
-        if (image.naturalWidth) setPhotoOrientation();
-        else image.addEventListener("load", setPhotoOrientation, { once: true });
-
         const photoButton = document.createElement("button");
         photoButton.type = "button";
         photoButton.className = "hobby-photo-button";
