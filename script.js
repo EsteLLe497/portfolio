@@ -171,6 +171,38 @@ document.addEventListener("keydown", (event) => {
   closeHobbyModals();
 });
 
+// Scroll each year independently without intercepting native touch gestures.
+for (const year of document.querySelectorAll(".work-year")) {
+  const track = year.querySelector(".work-year-grid");
+  if (!track) continue;
+
+  const controls = document.createElement("div");
+  controls.className = "work-row-controls";
+  for (const [direction, label, icon] of [[-1, "前の作品", "‹"], [1, "次の作品", "›"]]) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = icon;
+    button.title = label;
+    button.setAttribute("aria-label", label);
+    const update = () => {
+      const remaining = track.scrollWidth - track.clientWidth - track.scrollLeft;
+      button.disabled = direction < 0 ? track.scrollLeft <= 1 : remaining <= 1;
+    };
+    button.addEventListener("click", () => {
+      const first = track.children[0];
+      const next = track.children[1];
+      if (first && next) {
+        track.scrollBy({ left: direction * (next.offsetLeft - first.offsetLeft) });
+      }
+    });
+    track.addEventListener("scroll", update, { passive: true });
+    new ResizeObserver(update).observe(track);
+    controls.append(button);
+    update();
+  }
+  year.querySelector(".work-year-head")?.append(controls);
+}
+
 const workOpenButtons = document.querySelectorAll("[data-work-open]");
 const workModals = [...document.querySelectorAll(".work-modal[id$='-modal']")].filter((modal) => {
   return modal.querySelector(".work-slide");
@@ -234,7 +266,14 @@ const setupWorkModal = (workModal) => {
   };
 
   for (const button of openButtons) {
-    button.addEventListener("click", openModal);
+    button.addEventListener("click", (event) => {
+      openModal();
+      const image = event.target;
+      if (!(image instanceof HTMLImageElement)) return;
+      const index = slides.findIndex((slide) => slide instanceof HTMLImageElement && slide.src === image.src);
+      if (index >= 0) showSlide(index);
+      else openImageLightbox(image);
+    });
   }
 
   for (const button of closeButtons) {
@@ -249,11 +288,12 @@ const setupWorkModal = (workModal) => {
   }
   for (const button of jumpButtons) {
     button.addEventListener("click", () => {
-      const targetSlide = Number(button.dataset.slideJump);
+      const image = button.querySelector("img");
+      const imageIndex = slides.findIndex((slide) => slide instanceof HTMLImageElement && slide.src === image?.src);
+      const targetSlide = imageIndex >= 0 ? imageIndex : Number(button.dataset.slideJump);
       showSlide(targetSlide);
-      if (slides[targetSlide] instanceof HTMLImageElement) {
-        openImageLightbox(slides[targetSlide]);
-      }
+      const selectedImage = image ?? slides[targetSlide];
+      if (selectedImage instanceof HTMLImageElement) openImageLightbox(selectedImage);
     });
   }
   for (const button of workModal.querySelectorAll("[data-lightbox-close]")) {
