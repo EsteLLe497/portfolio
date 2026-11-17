@@ -1751,6 +1751,32 @@ figcaption {
 @media (max-width: 860px) {
   .global-nav {
     justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    height: 56px;
+    padding: 0 8px;
+    letter-spacing: 0;
+  }
+
+  .global-nav a {
+    display: grid;
+    place-items: center;
+    min-height: 44px;
+    padding-inline: 10px;
+  }
+
+  .global-nav a::after {
+    inset: auto 10px 3px;
+  }
+
+  .panel {
+    scroll-margin-top: 56px;
+  }
+
+  .hero-motto p {
+    white-space: normal;
+    font-size: 1rem;
+    letter-spacing: 0;
   }
 
   .hero,
@@ -1780,12 +1806,43 @@ figcaption {
   }
 
   .work-modal {
-    padding: 14px;
+    padding: 8px;
   }
 
   .work-modal-panel {
-    max-height: 90vh;
-    padding: 18px;
+    width: 100%;
+    min-width: 0;
+    max-height: calc(100dvh - 16px);
+    padding: 52px 14px 16px;
+    gap: 16px;
+    overscroll-behavior-y: contain;
+  }
+
+  .work-viewer,
+  .work-detail {
+    min-width: 0;
+  }
+
+  .work-detail h3 {
+    font-size: 1.75rem;
+  }
+
+  .modal-close,
+  .viewer-arrow,
+  .work-row-controls button,
+  #photo-viewer button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .modal-close {
+    top: 4px;
+    right: 6px;
+  }
+
+  .character-carousel,
+  .viewer-stage:has(img.is-active) {
+    touch-action: pan-y pinch-zoom;
   }
 
   .work-year-head {
@@ -1817,7 +1874,23 @@ figcaption {
   }
 
   .work-media-thumbs {
-    grid-template-columns: 1fr;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(72%, 160px);
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+  }
+
+  .work-media-thumbs button {
+    scroll-snap-align: start;
+  }
+
+  .work-media-thumbs span {
+    white-space: normal;
+  }
+
+  .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .life-chart-head {
@@ -1881,7 +1954,21 @@ figcaption {
   }
 
   .section-title h2 {
-    font-size: clamp(3.1rem, 18vw, 5rem);
+    font-size: 2.35rem;
+    letter-spacing: 0;
+  }
+
+  .hero-motto {
+    top: 8%;
+    left: 17%;
+    width: 66%;
+    gap: 4px;
+    padding: 2px 0;
+  }
+
+  .hero-motto span {
+    font-size: 0.8rem;
+    padding-top: 5px;
   }
 
   .gallery-grid {
@@ -1889,12 +1976,12 @@ figcaption {
   }
 
   .character-carousel {
-    grid-template-columns: 38px minmax(0, 1fr) 38px;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
     gap: 8px;
   }
 
   .character-copy {
-    --profile-side-gutter: 46px;
+    --profile-side-gutter: 52px;
   }
 
   .character-slide-frame {
@@ -1903,11 +1990,11 @@ figcaption {
 
   .character-slide {
     min-height: 420px;
-    padding: 20px;
+    padding: 12px;
   }
 
   .character-arrow {
-    width: 38px;
+    width: 44px;
     height: 52px;
     font-size: 2.2rem;
   }

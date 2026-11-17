@@ -114,6 +114,37 @@ const scheduleRandomRipple = () => {
 
 window.setTimeout(scheduleRandomRipple, 500);
 
+const addSwipeNavigation = (surface, navigate) => {
+  let start;
+  let suppressClickUntil = 0;
+
+  surface.addEventListener("touchstart", (event) => {
+    start = event.touches.length === 1 && !event.target.closest("video, button, a")
+      ? event.touches[0] : null;
+  }, { passive: true });
+  surface.addEventListener("touchcancel", () => { start = null; }, { passive: true });
+  surface.addEventListener("touchend", (event) => {
+    if (!start || event.touches.length) {
+      start = null;
+      return;
+    }
+    const end = [...event.changedTouches].find((touch) => touch.identifier === start.identifier);
+    const dx = end ? end.clientX - start.clientX : 0;
+    const dy = end ? end.clientY - start.clientY : 0;
+    start = null;
+    // A horizontal swipe changes the slide instead of triggering image zoom.
+    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.35) return;
+    if (event.cancelable) event.preventDefault();
+    suppressClickUntil = performance.now() + 350;
+    navigate(dx < 0 ? 1 : -1);
+  });
+  surface.addEventListener("click", (event) => {
+    if (event.detail === 0 || performance.now() >= suppressClickUntil) return;
+    event.preventDefault();
+    event.stopPropagation();
+  }, true);
+};
+
 const characterCarousel = document.querySelector(".character-carousel");
 
 if (characterCarousel) {
@@ -132,6 +163,7 @@ if (characterCarousel) {
 
   prevButton?.addEventListener("click", () => showCharacterSlide(currentCharacterSlide - 1));
   nextButton?.addEventListener("click", () => showCharacterSlide(currentCharacterSlide + 1));
+  addSwipeNavigation(characterCarousel, (direction) => showCharacterSlide(currentCharacterSlide + direction));
 
   characterCarousel.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") showCharacterSlide(currentCharacterSlide - 1);
@@ -326,6 +358,10 @@ const setupWorkModal = (workModal) => {
 
   prevButton?.addEventListener("click", () => showSlide(currentSlide - 1));
   nextButton?.addEventListener("click", () => showSlide(currentSlide + 1));
+  const stage = workModal.querySelector("[data-slide-stage]");
+  if (stage && slides.length > 1) {
+    addSwipeNavigation(stage, (direction) => showSlide(currentSlide + direction));
+  }
   for (const slide of slides) {
     if (!(slide instanceof HTMLImageElement)) continue;
     slide.addEventListener("click", () => openImageLightbox(slide));
