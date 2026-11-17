@@ -419,6 +419,18 @@
                   </div>
                 </div>
               </button>
+              <button class="work-card work-card-button" type="button" data-work-open="whats-your-answer">
+                <img src="./assets/work-whats-your-answer/cover.gif" alt="What's Your Answer?の作品画像" loading="lazy" />
+                <div>
+                  <h3>What's Your Answer?</h3>
+                  <span class="work-card-summary">宇宙の生配信で、ゲストを怒らせずにトークを盛り上げるゲーム。</span>
+                  <div class="work-tags" aria-label="作品タグ">
+                    <span>チーム制作</span>
+                    <span>Unity</span>
+                    <span>Unity1Week</span>
+                  </div>
+                </div>
+              </button>
             </div>
           </section>
         </div>
@@ -446,6 +458,28 @@
         </div>
       </section>
     </main>
+
+    <div class="work-modal" id="whats-your-answer-modal" aria-hidden="true">
+      <div class="work-modal-backdrop" data-work-close></div>
+      <section class="work-modal-panel" role="dialog" aria-modal="true" aria-labelledby="whats-your-answer-title">
+        <button class="modal-close" type="button" data-work-close aria-label="閉じる">×</button>
+        <div class="work-viewer">
+          <div class="viewer-stage" data-slide-stage>
+            <img class="work-slide is-active" src="./assets/work-whats-your-answer/cover.gif" alt="What's Your Answer?の作品画像" loading="lazy" />
+          </div>
+        </div>
+        <div class="work-detail">
+          <h3 id="whats-your-answer-title">What's Your Answer?</h3>
+          <p>宇宙の生配信の司会者・Mr.ドゥーンになり、ゲストの機嫌をうかがいながら番組を盛り上げるゲームです。</p>
+          <dl>
+            <div><dt>制作環境</dt><dd>Unity</dd></div>
+            <div><dt>参加イベント</dt><dd>Unity1Week お題「しろ」</dd></div>
+            <div><dt>プレイ時間</dt><dd>約10分</dd></div>
+            <div><dt>配布ページ</dt><dd><a class="work-repo-link" href="https://unityroom.com/games/whatsyouranswer" target="_blank" rel="noopener noreferrer">unityroomで遊ぶ</a></dd></div>
+          </dl>
+        </div>
+      </section>
+    </div>
 
     <div class="work-modal" id="let-me-outside-modal" aria-hidden="true">
       <div class="work-modal-backdrop" data-work-close></div>
