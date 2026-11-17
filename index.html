@@ -464,14 +464,23 @@
       <section class="work-modal-panel" role="dialog" aria-modal="true" aria-labelledby="whats-your-answer-title">
         <button class="modal-close" type="button" data-work-close aria-label="閉じる">×</button>
         <div class="work-viewer">
-          <div class="viewer-stage" data-slide-stage>
-            <img class="work-slide is-active" src="./assets/work-whats-your-answer/cover.gif" alt="What's Your Answer?の作品画像" loading="lazy" />
+          <div class="viewer-media">
+            <button class="viewer-arrow viewer-arrow-left" type="button" data-slide-prev aria-label="前の写真">‹</button>
+            <div class="viewer-stage" data-slide-stage>
+              <img class="work-slide is-active" src="./assets/work-whats-your-answer/cover.gif" alt="What's Your Answer?の作品画像" loading="lazy" />
+              <img class="work-slide" src="./assets/work-whats-your-answer/broadcast.png" alt="ライブ配信の会話画面" loading="lazy" />
+              <img class="work-slide" src="./assets/work-whats-your-answer/choices.png" alt="会話の選択肢" loading="lazy" />
+              <img class="work-slide" src="./assets/work-whats-your-answer/result.png" alt="ゲームオーバー時のリザルト画面" loading="lazy" />
+              <img class="work-slide" src="./assets/work-whats-your-answer/talk-editor.png" alt="Unityの会話シーケンス編集画面" loading="lazy" />
+              <img class="work-slide" src="./assets/work-whats-your-answer/result-settings.png" alt="Unityのリザルト設定画面" loading="lazy" />
+            </div>
+            <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次の写真">›</button>
           </div>
           <div class="work-ingenuity">
             <p>工夫点</p>
             <ul>
               <li>会話の進行をシングルトンの Talk Game Manager にまとめ、ライターが会話の順番や選択肢ごとの分岐を直感的に編集できるようにしました。</li>
-              <li>リザルト管理は専用クラスに分け、会話の進行処理に手を入れずに結果の扱いを調整できるようにしました。</li>
+              <li>リザルトは専用クラスに分けて一括管理し、達成条件やボーナスを会話の進行処理から独立して調整できる、汎用性の高い設計にしました。</li>
             </ul>
           </div>
         </div>
