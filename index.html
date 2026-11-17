@@ -402,6 +402,25 @@
               </button>
             </div>
           </section>
+          <section class="work-year">
+            <div class="work-year-head">
+              <h3>その他</h3>
+            </div>
+            <div class="work-year-grid">
+              <button class="work-card work-card-button" type="button" data-work-open="let-me-outside">
+                <img src="./assets/work-let-me-outside/cover.png" alt="Let me outsideのキービジュアル" loading="lazy" />
+                <div>
+                  <h3>Let me outside</h3>
+                  <span class="work-card-genre">ホラーノベル</span>
+                  <span class="work-card-summary">画面の中の少女を外に出すか。あなたの選択が、彼女の結末を左右します。</span>
+                  <div class="work-tags" aria-label="作品タグ">
+                    <span>ティラノビルダー</span>
+                    <span>700ダウンロード突破</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -427,6 +446,42 @@
         </div>
       </section>
     </main>
+
+    <div class="work-modal" id="let-me-outside-modal" aria-hidden="true">
+      <div class="work-modal-backdrop" data-work-close></div>
+      <section class="work-modal-panel" role="dialog" aria-modal="true" aria-labelledby="let-me-outside-title">
+        <button class="modal-close" type="button" data-work-close aria-label="閉じる">×</button>
+        <div class="work-viewer">
+          <div class="viewer-media">
+            <button class="viewer-arrow viewer-arrow-left" type="button" data-slide-prev aria-label="前の写真">‹</button>
+            <div class="viewer-stage" data-slide-stage>
+              <img class="work-slide is-active" src="./assets/work-let-me-outside/cover.png" alt="Let me outsideのキービジュアル" />
+              <img class="work-slide" src="./assets/work-let-me-outside/screen-1.png" alt="Let me outsideのゲーム画面 1" loading="lazy" />
+              <img class="work-slide" src="./assets/work-let-me-outside/screen-2.png" alt="Let me outsideのゲーム画面 2" loading="lazy" />
+              <img class="work-slide" src="./assets/work-let-me-outside/screen-3.png" alt="Let me outsideのゲーム画面 3" loading="lazy" />
+              <img class="work-slide" src="./assets/work-let-me-outside/screen-4.png" alt="Let me outsideのゲーム画面 4" loading="lazy" />
+            </div>
+            <button class="viewer-arrow viewer-arrow-right" type="button" data-slide-next aria-label="次の写真">›</button>
+          </div>
+        </div>
+        <div class="work-detail">
+          <h3 id="let-me-outside-title">Let me outside</h3>
+          <p>画面の中の少女から「私を、ここから出してください。」と頼まれる短編ホラーノベルです。彼女の願いにどう応えるか、その選択が結末に関わります。</p>
+          <dl>
+            <div><dt>制作環境</dt><dd>ティラノビルダー / ティラノスクリプト</dd></div>
+            <div><dt>プレイ時間</dt><dd>約15分</dd></div>
+            <div><dt>配布実績</dt><dd>700ダウンロード突破</dd></div>
+            <div><dt>配布ページ</dt><dd><a class="work-repo-link" href="https://novelgame.jp/games/show/14218" target="_blank" rel="noopener noreferrer">ノベルゲームコレクションで遊ぶ</a></dd></div>
+          </dl>
+          <div class="work-pr-block">
+            <section>
+              <h4>工夫点</h4>
+              <p>少女が画面の境界を越えてくるような怖さを出すため、ティラノスクリプトで画面サイズを変えたり、文字を表示枠からあふれさせたりしました。普段は固定されている画面や文字枠そのものを、恐怖演出に使いました。</p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <div class="work-modal" id="dolly-modal" aria-hidden="true">
       <div class="work-modal-backdrop" data-work-close></div>
